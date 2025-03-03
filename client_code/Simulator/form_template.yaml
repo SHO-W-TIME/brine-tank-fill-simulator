@@ -1,11 +1,12 @@
 components:
 - components:
   - components:
-    - layout_properties: {grid_position: 'HELLQO,LWXXJG'}
+    - data_bindings: []
+      layout_properties: {grid_position: 'HELLQO,LWXXJG'}
       name: label_1
       properties: {text: Brine Density (lb/ft³)}
       type: Label
-    - event_bindings: {pressed_enter: rho_pressed_enter}
+    - event_bindings: {}
       layout_properties: {grid_position: 'HELLQO,PVSIXE'}
       name: rho
       properties: {enabled: true, placeholder: '', text: ''}
@@ -14,7 +15,7 @@ components:
       name: label_2
       properties: {text: Pipe Length (ft)}
       type: Label
-    - event_bindings: {pressed_enter: L_pressed_enter}
+    - event_bindings: {}
       layout_properties: {grid_position: 'YMJERN,HPLCYF'}
       name: L
       properties: {enabled: true, placeholder: ''}
@@ -23,75 +24,77 @@ components:
       name: label_3
       properties: {text: Pipe Diameter (in)}
       type: Label
-    - layout_properties: {grid_position: 'TVWUIA,EGKKDR'}
+    - event_bindings: {}
+      layout_properties: {grid_position: 'TVWUIA,EGKKDR'}
       name: D
       properties: {enabled: true, placeholder: ''}
       type: TextBox
     - layout_properties: {grid_position: 'RROBTT,ZJASZL'}
       name: label_4
-      properties: {text: Height Difference to Top Fill (ft)}
+      properties: {align: left, text: Height Difference to Top Fill (ft)}
       type: Label
-    - layout_properties: {grid_position: 'RROBTT,WBYGER'}
+    - event_bindings: {}
+      layout_properties: {grid_position: 'RROBTT,WBYGER'}
       name: h_elevation
       properties: {}
       type: TextBox
     - layout_properties: {grid_position: 'UNOGMK,BFJAFL'}
-      name: label_8
+      name: label_5
       properties: {text: Darcy Friction Factor}
       type: Label
-    - layout_properties: {grid_position: 'UNOGMK,PLFEKN'}
+    - event_bindings: {}
+      layout_properties: {grid_position: 'UNOGMK,PLFEKN'}
       name: f
       properties: {}
       type: TextBox
     - layout_properties: {grid_position: 'TBUTRC,TWSHUV'}
-      name: label_10
+      name: label_6
       properties: {text: Total Minor Losses}
       type: Label
-    - layout_properties: {grid_position: 'TBUTRC,MWFTKV'}
+    - event_bindings: {}
+      layout_properties: {grid_position: 'TBUTRC,MWFTKV'}
       name: K_minor
-      properties: {}
+      properties: {hide_text: false}
       type: TextBox
-    - event_bindings: {change: text_area_1_change}
-      layout_properties: {grid_position: 'AKFPIY,QBVGWY'}
-      name: text_area_1
-      properties: {bold: true, enabled: true, text: 'The above parameters are used to manually calculate total system losses. If system losses are already known, please enter that value under "System Loss Variable" below.'}
-      type: TextArea
+    - layout_properties: {grid_position: 'LQKZDC,TLAYWY'}
+      name: disclaimer
+      properties: {align: center, bold: true, text: 'The above parameters are used to manually calculate total system losses. If system losses are already known, please enter that value under "System Loss Variable" below. Otherwise, please enter 0.'}
+      type: Label
     - layout_properties: {grid_position: 'JLVYYZ,BBXPMN'}
-      name: label_5
+      name: label_7
       properties: {text: System Loss Variable}
       type: Label
     - data_bindings: []
+      event_bindings: {}
       layout_properties: {grid_position: 'JLVYYZ,IUEGAZ'}
       name: LossVar
-      properties: {}
+      properties: {enabled: true}
       type: TextBox
     - layout_properties: {grid_position: 'YXCGRP,OSRUUL'}
-      name: label_6
+      name: label_8
       properties: {text: Selected Pump}
       type: Label
-    - data_bindings:
-      - {code: 'self.item['''']', property: items, writeback: false}
-      event_bindings: {change: pump_change}
+    - data_bindings: []
+      event_bindings: {}
       layout_properties: {grid_position: 'YXCGRP,EEWVCC'}
       name: pump
       properties:
         items: [Sample Pump 1, Sample Pump 2, Other]
       type: DropDown
     - layout_properties: {grid_position: 'CDKKDW,HITXSK'}
-      name: label_7
+      name: label_9
       properties: {text: Selected Tank}
       type: Label
-    - data_bindings:
-      - {code: 'self.item['''']', property: items, writeback: false}
-      event_bindings: {change: tank_change}
+    - data_bindings: []
+      event_bindings: {}
       layout_properties: {grid_position: 'CDKKDW,PMURJB'}
       name: tank
       properties:
         items: [Sample Tank 1, Sample Tank 2, Sample Tank 3, Other]
       type: DropDown
-    - event_bindings: {click: button_1_click}
+    - event_bindings: {click: calculate_click}
       layout_properties: {grid_position: 'CRJHKM,QMIIIX'}
-      name: button_1
+      name: calculate
       properties: {text: Calculate}
       type: Button
     - layout_properties: {grid_position: 'SUNNDX,MOODXZ'}
@@ -119,18 +122,19 @@ components:
   properties: {text: Brine Tank Fill Simulator}
   type: Label
 - components:
-  - event_bindings: {click: link_1_click}
+  - event_bindings: {click: how_to_use_click}
     layout_properties: {grid_position: 'CMPPHZ,YCZIFB'}
-    name: link_1
+    name: how_to_use
     properties: {text: How to Use}
     type: Link
-  - event_bindings: {click: link_2_click}
+  - event_bindings: {click: simulator_click}
     layout_properties: {grid_position: 'LIQUKF,EIIHAD'}
-    name: link_2
+    name: simulator
     properties: {text: Simulator}
     type: Link
-  - layout_properties: {grid_position: 'BTXHUD,YQEXQY'}
-    name: link_3
+  - event_bindings: {click: references_click}
+    layout_properties: {grid_position: 'BTXHUD,YQEXQY'}
+    name: references
     properties: {text: References}
     type: Link
   layout_properties: {slot: left-nav}
