@@ -27,21 +27,29 @@ components:
       name: text_box_3
       properties: {placeholder: ''}
       type: TextBox
-    - event_bindings: {change: text_area_1_change}
-      layout_properties: {grid_position: 'AKFPIY,QBVGWY'}
-      name: text_area_1
-      properties: {bold: true, enabled: true, text: 'The above parameters are used to manually calculate losses. If a predetermined loss variable is already known, please enter that value under "System Loss Variable" below.'}
-      type: TextArea
-    - layout_properties: {grid_position: 'JLVYYZ,BBXPMN'}
+    - layout_properties: {grid_position: 'RROBTT,ZJASZL'}
       name: label_4
-      properties: {text: System Loss Variable}
+      properties: {text: Height Difference to Top Fill (ft)}
       type: Label
-    - layout_properties: {grid_position: 'JLVYYZ,IUEGAZ'}
+    - layout_properties: {grid_position: 'RROBTT,WBYGER'}
       name: text_box_4
       properties: {}
       type: TextBox
-    - layout_properties: {grid_position: 'YXCGRP,OSRUUL'}
+    - event_bindings: {change: text_area_1_change}
+      layout_properties: {grid_position: 'AKFPIY,QBVGWY'}
+      name: text_area_1
+      properties: {bold: true, enabled: true, text: 'The above parameters are used to manually calculate losses. If system losses are already known, please enter that value under "System Loss Variable" below.'}
+      type: TextArea
+    - layout_properties: {grid_position: 'JLVYYZ,BBXPMN'}
       name: label_5
+      properties: {text: System Loss Variable}
+      type: Label
+    - layout_properties: {grid_position: 'JLVYYZ,IUEGAZ'}
+      name: text_box_5
+      properties: {}
+      type: TextBox
+    - layout_properties: {grid_position: 'YXCGRP,OSRUUL'}
+      name: label_6
       properties: {text: Selected Pump}
       type: Label
     - event_bindings: {change: drop_down_1_change}
@@ -51,7 +59,7 @@ components:
         items: [Sample Pump 1, Sample Pump 2, Other]
       type: DropDown
     - layout_properties: {grid_position: 'CDKKDW,HITXSK'}
-      name: label_6
+      name: label_7
       properties: {text: Selected Tank}
       type: Label
     - event_bindings: {change: drop_down_2_change}
@@ -78,11 +86,12 @@ components:
   properties: {}
   type: FlowPanel
 - layout_properties: {slot: title}
-  name: label_7
+  name: Title
   properties: {text: Brine Tank Fill Simulator}
   type: Label
 - components:
-  - layout_properties: {grid_position: 'CMPPHZ,YCZIFB'}
+  - event_bindings: {click: link_1_click}
+    layout_properties: {grid_position: 'CMPPHZ,YCZIFB'}
     name: link_1
     properties: {text: How to Use}
     type: Link
