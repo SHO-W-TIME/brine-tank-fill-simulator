@@ -8,7 +8,7 @@ components:
     - event_bindings: {pressed_enter: rho_pressed_enter}
       layout_properties: {grid_position: 'HELLQO,PVSIXE'}
       name: rho
-      properties: {placeholder: '', text: ''}
+      properties: {enabled: true, placeholder: '', text: ''}
       type: TextBox
     - layout_properties: {grid_position: 'YMJERN,DOBLIP'}
       name: label_2
@@ -17,7 +17,7 @@ components:
     - event_bindings: {pressed_enter: L_pressed_enter}
       layout_properties: {grid_position: 'YMJERN,HPLCYF'}
       name: L
-      properties: {placeholder: ''}
+      properties: {enabled: true, placeholder: ''}
       type: TextBox
     - layout_properties: {grid_position: 'TVWUIA,PDSCNY'}
       name: label_3
@@ -25,7 +25,7 @@ components:
       type: Label
     - layout_properties: {grid_position: 'TVWUIA,EGKKDR'}
       name: D
-      properties: {placeholder: ''}
+      properties: {enabled: true, placeholder: ''}
       type: TextBox
     - layout_properties: {grid_position: 'RROBTT,ZJASZL'}
       name: label_4
@@ -60,7 +60,8 @@ components:
       name: label_5
       properties: {text: System Loss Variable}
       type: Label
-    - layout_properties: {grid_position: 'JLVYYZ,IUEGAZ'}
+    - data_bindings: []
+      layout_properties: {grid_position: 'JLVYYZ,IUEGAZ'}
       name: LossVar
       properties: {}
       type: TextBox
@@ -68,9 +69,11 @@ components:
       name: label_6
       properties: {text: Selected Pump}
       type: Label
-    - event_bindings: {change: drop_down_1_change}
+    - data_bindings:
+      - {code: 'self.item['''']', property: items, writeback: false}
+      event_bindings: {change: pump_change}
       layout_properties: {grid_position: 'YXCGRP,EEWVCC'}
-      name: drop_down_1
+      name: pump
       properties:
         items: [Sample Pump 1, Sample Pump 2, Other]
       type: DropDown
@@ -78,9 +81,11 @@ components:
       name: label_7
       properties: {text: Selected Tank}
       type: Label
-    - event_bindings: {change: drop_down_2_change}
+    - data_bindings:
+      - {code: 'self.item['''']', property: items, writeback: false}
+      event_bindings: {change: tank_change}
       layout_properties: {grid_position: 'CDKKDW,PMURJB'}
-      name: drop_down_2
+      name: tank
       properties:
         items: [Sample Tank 1, Sample Tank 2, Sample Tank 3, Other]
       type: DropDown
@@ -91,11 +96,11 @@ components:
       type: Button
     - layout_properties: {grid_position: 'SUNNDX,MOODXZ'}
       name: flow_rate_result
-      properties: {align: center}
+      properties: {align: center, visible: false}
       type: Label
     - layout_properties: {grid_position: 'VOKCCI,XDGSRD'}
       name: fill_time_result
-      properties: {align: center}
+      properties: {align: center, visible: false}
       type: Label
     layout_properties: {grid_position: 'MERXUS,MZYTGY'}
     name: outlined_card_1
@@ -133,6 +138,7 @@ components:
   properties: {}
   type: ColumnPanel
 container:
+  event_bindings: {refreshing_data_bindings: form_refreshing_data_bindings}
   properties: {html: '@theme:standard-page.html', visible: true}
   type: HtmlTemplate
 is_package: true
