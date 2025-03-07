@@ -14,7 +14,7 @@ class Simulator(SimulatorTemplate):
     Q_solution, t_fill = anvil.server.call('anvilSolver', 
                                            float(self.rho.text), 
                                            float(self.L.text), 
-                                           float(self.D.text)/12,
+                                           (float(self.D.text)/12),
                                            float(self.h_elevation.text),
                                            float(self.f.text),
                                            float(self.K_minor.text),
