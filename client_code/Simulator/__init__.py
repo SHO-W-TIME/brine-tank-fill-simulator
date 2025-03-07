@@ -11,16 +11,16 @@ class Simulator(SimulatorTemplate):
   
   def calculate_click(self, **event_args):
     """This method is called when the button is clicked"""
-    Q_solution, t_fill = anvil.server.call('anvilSolver',
-                                           float(self.rho.text),
-                                           float(self.L.text),
-                                           float(self.D.text)/12,
-                                           float(self.h_elevation.text),
-                                           float(self.f.text),
-                                           float(self.K_minor.text),
-                                           float(self.LossVar.text),
-                                           self.pump.selected_value,
-                                           self.tank.selected_value)
+    Q_solution, t_fill, rho1, L1, D1, h_elevation1, f1, K_minor1, LossVar1 = anvil.server.call('anvilSolver', 
+                                                                                                float(self.rho.text), 
+                                                                                                float(self.L.text), 
+                                                                                                float(self.D.text)/12,
+                                                                                                float(self.h_elevation.text),
+                                                                                                float(self.f.text),
+                                                                                                float(self.K_minor.text),
+                                                                                                float(self.LossVar.text),
+                                                                                                self.pump.selected_value,
+                                                                                                self.tank.selected_value)
 
     if Q_solution:
       self.flow_rate_result.visible = True
@@ -29,6 +29,11 @@ class Simulator(SimulatorTemplate):
     if t_fill:
       self.fill_time_result.visible = True
       self.fill_time_result.text = "Calculated Fill Time = " + str(t_fill) + " min"
+
+    self.fed_parameters.visible = True
+    self.fed_parameters.text = "The parameters fed are: rho = " + str(rho1) + ", \n L = " + str(L1) + ", \n and so forth (bug fixing)"
+
+    
 
   def how_to_use_click(self, **event_args):
     """This method is called when the link is clicked"""
