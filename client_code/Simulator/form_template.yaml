@@ -76,7 +76,7 @@ components:
       properties: {text: Selected Pump}
       type: Label
     - data_bindings: []
-      event_bindings: {}
+      event_bindings: {change: pump_change}
       layout_properties: {grid_position: 'YXCGRP,EEWVCC'}
       name: pump
       properties:
@@ -87,7 +87,7 @@ components:
       properties: {text: Selected Tank}
       type: Label
     - data_bindings: []
-      event_bindings: {}
+      event_bindings: {change: tank_change}
       layout_properties: {grid_position: 'CDKKDW,PMURJB'}
       name: tank
       properties:
