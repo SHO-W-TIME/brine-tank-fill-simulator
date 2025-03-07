@@ -57,6 +57,10 @@ components:
       name: K_minor
       properties: {hide_text: false, type: text}
       type: TextBox
+    - layout_properties: {grid_position: 'CVHCIP,XRDTJJ'}
+      name: label_10
+      properties: {align: center, bold: true, text: 'The above parameters are used to solve for the total system losses. If system loss is already known, please enter that value under "System Loss Variable" below. Otherwise, please enter 0.'}
+      type: Label
     - layout_properties: {grid_position: 'JZLOMU,OWNQRZ'}
       name: label_7
       properties: {text: System Loss Variable (enter 0 if unknown)}
