@@ -24,11 +24,11 @@ class Simulator(SimulatorTemplate):
 
     if Q_solution:
       self.flow_rate_result.visible = True
-      self.flow_rate_result.text = "Calculated Flow Rate = " + str(Q_solution) + " gpm"
+      self.flow_rate_result.text = "Calculated Flow Rate = " + str(round(Q_solution, 2)) + " gpm"
 
     if t_fill:
       self.fill_time_result.visible = True
-      self.fill_time_result.text = "Calculated Fill Time = " + str(t_fill) + " min"
+      self.fill_time_result.text = "Calculated Fill Time = " + str(round(t_fill, 2)) + " min"
 
 
     
