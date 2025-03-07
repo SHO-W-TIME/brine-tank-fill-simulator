@@ -63,7 +63,7 @@ components:
       type: Label
     - layout_properties: {grid_position: 'JZLOMU,OWNQRZ'}
       name: label_7
-      properties: {text: System Loss Variable (enter 0 if unknown)}
+      properties: {text: System Loss Variable}
       type: Label
     - layout_properties: {grid_position: 'JZLOMU,WOGOLR'}
       name: LossVar
