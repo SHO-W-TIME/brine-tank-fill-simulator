@@ -10,7 +10,7 @@ components:
       event_bindings: {}
       layout_properties: {grid_position: 'HELLQO,PVSIXE'}
       name: rho
-      properties: {enabled: true, placeholder: '', text: '', type: number}
+      properties: {enabled: true, placeholder: '', text: '', type: text}
       type: TextBox
     - layout_properties: {grid_position: 'YMJERN,DOBLIP'}
       name: label_2
@@ -19,7 +19,7 @@ components:
     - event_bindings: {}
       layout_properties: {grid_position: 'YMJERN,HPLCYF'}
       name: L
-      properties: {enabled: true, placeholder: '', type: number}
+      properties: {enabled: true, placeholder: '', type: text}
       type: TextBox
     - layout_properties: {grid_position: 'TVWUIA,PDSCNY'}
       name: label_3
@@ -28,7 +28,7 @@ components:
     - event_bindings: {}
       layout_properties: {grid_position: 'TVWUIA,EGKKDR'}
       name: D
-      properties: {enabled: true, placeholder: '', type: number}
+      properties: {enabled: true, placeholder: '', type: text}
       type: TextBox
     - layout_properties: {grid_position: 'RROBTT,ZJASZL'}
       name: label_4
@@ -37,7 +37,7 @@ components:
     - event_bindings: {}
       layout_properties: {grid_position: 'RROBTT,WBYGER'}
       name: h_elevation
-      properties: {type: number}
+      properties: {type: text}
       type: TextBox
     - layout_properties: {grid_position: 'UNOGMK,BFJAFL'}
       name: label_5
@@ -46,7 +46,7 @@ components:
     - event_bindings: {}
       layout_properties: {grid_position: 'UNOGMK,PLFEKN'}
       name: f
-      properties: {type: number}
+      properties: {type: text}
       type: TextBox
     - layout_properties: {grid_position: 'TBUTRC,TWSHUV'}
       name: label_6
@@ -55,7 +55,7 @@ components:
     - event_bindings: {}
       layout_properties: {grid_position: 'TBUTRC,MWFTKV'}
       name: K_minor
-      properties: {hide_text: false, type: number}
+      properties: {hide_text: false, type: text}
       type: TextBox
     - layout_properties: {grid_position: 'LQKZDC,TLAYWY'}
       name: disclaimer
@@ -69,7 +69,7 @@ components:
       event_bindings: {}
       layout_properties: {grid_position: 'JLVYYZ,IUEGAZ'}
       name: LossVar
-      properties: {enabled: true, type: number}
+      properties: {enabled: true, type: text}
       type: TextBox
     - layout_properties: {grid_position: 'YXCGRP,OSRUUL'}
       name: label_8

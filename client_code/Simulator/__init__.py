@@ -49,3 +49,11 @@ class Simulator(SimulatorTemplate):
   def K_minor_change(self, **event_args):
     """This method is called when the text in this text box is edited"""
     pass
+
+  def pump_change(self, **event_args):
+    """This method is called when an item is selected"""
+    pass
+
+  def tank_change(self, **event_args):
+    """This method is called when an item is selected"""
+    pass
