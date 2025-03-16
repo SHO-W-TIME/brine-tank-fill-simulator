@@ -7,7 +7,7 @@ components:
       type: Label
     - layout_properties: {grid_position: 'QNZQJD,IPSHAC'}
       name: how_to_use_explanation
-      properties: {content: '(placeholder for '}
+      properties: {content: (placeholder text 1)}
       type: RichText
     layout_properties: {grid_position: 'CDWMUO,HYOIFU'}
     name: how_to_use_card
@@ -183,6 +183,10 @@ components:
     - layout_properties: {grid_position: 'ASQOBC,WRTJIN'}
       name: label_10
       properties: {align: center, bold: true, font_size: 24, text: References}
+      type: Label
+    - layout_properties: {grid_position: 'IFGVFZ,MGIJFB'}
+      name: references_list
+      properties: {text: (placeholder text 2)}
       type: Label
     layout_properties: {grid_position: 'GWDMZO,PYWVVI'}
     name: references_card
