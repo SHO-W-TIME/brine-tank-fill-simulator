@@ -6,7 +6,9 @@ class Simulator(SimulatorTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-
+    self.simulator_card.visible = False
+    self.how_to_use_card.visible = True
+    self.references_card.visible = False
     # Any code you write here will run before the form opens.
   
   def calculate_click(self, **event_args):
@@ -31,18 +33,25 @@ class Simulator(SimulatorTemplate):
       self.fill_time_result.text = "Calculated Fill Time = " + str(round(t_fill, 2)) + " min"
 
 
-    
-
   def how_to_use_click(self, **event_args):
     """This method is called when the link is clicked"""
+    self.how_to_use_card.visible = True
+    self.simulator_card.visible = False
+    self.references_card.visible = False
     pass
 
   def simulator_click(self, **event_args):
     """This method is called when the link is clicked"""
+    self.simulator_card.visible = True
+    self.how_to_use_card.visible = False
+    self.references_card.visible = False
     pass
 
   def references_click(self, **event_args):
     """This method is called when the link is clicked"""
+    self.references_card.visible = True
+    self.simulator_card.visible = False
+    self.how_to_use_card.visible = False
     pass
 
   def form_refreshing_data_bindings(self, **event_args):
@@ -71,8 +80,28 @@ class Simulator(SimulatorTemplate):
       self.pump_a.visible = False
       self.pump_b.visible = False
       self.pump_c.visible = False
+      
+    if self.pump.selected_value == "CSV File":
+      self.custom_pumps.visible = True
+      self.file_loader_pumps.visible = True
+    else:
+      self.custom_pumps.visible = False
+      self.file_loader_pumps.visible = False
     pass
 
   def tank_change(self, **event_args):
     """This method is called when an item is selected"""
+    if self.tank.selected_value == "Other":
+      self.custom_volume.visible = True
+      self.tank_v.visible = True
+    else:
+      self.custom_volume.visible = False
+      self.tank_v.visible = False
+
+    if self.tank.selected_value == "CSV File":
+      self.custom_tanks.visible = True
+      self.file_loader_tanks.visible = True
+    else:
+      self.custom_tanks.visible = False
+      self.file_loader_tanks.visible = False
     pass
