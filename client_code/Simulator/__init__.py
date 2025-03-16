@@ -55,6 +55,22 @@ class Simulator(SimulatorTemplate):
 
   def pump_change(self, **event_args):
     """This method is called when an item is selected"""
+    if self.pump.selected_value == "Other":
+      self.disclaimer_2.visible = True
+      self.custom_a.visible = True
+      self.custom_b.visible = True
+      self.custom_c.visible = True
+      self.pump_a.visible = True
+      self.pump_b.visible = True
+      self.pump_c.visible = True
+    else:
+      self.disclaimer_2.visible = False
+      self.custom_a.visible = False
+      self.custom_b.visible = False
+      self.custom_c.visible = False
+      self.pump_a.visible = False
+      self.pump_b.visible = False
+      self.pump_c.visible = False
     pass
 
   def tank_change(self, **event_args):

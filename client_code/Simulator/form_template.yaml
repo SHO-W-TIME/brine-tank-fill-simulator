@@ -58,7 +58,7 @@ components:
       properties: {hide_text: false, type: text}
       type: TextBox
     - layout_properties: {grid_position: 'CVHCIP,XRDTJJ'}
-      name: label_10
+      name: disclaimer_1
       properties: {align: center, bold: true, text: 'The above parameters are used to solve for the total system losses. If system loss is already known, please enter that value under "System Loss Variable" below. Otherwise, please enter 0.'}
       type: Label
     - layout_properties: {grid_position: 'JZLOMU,OWNQRZ'}
@@ -78,8 +78,37 @@ components:
       layout_properties: {grid_position: 'YXCGRP,EEWVCC'}
       name: pump
       properties:
-        items: [Sample Pump 1, Sample Pump 2, Other]
+        items: [Sample Pump 1, Sample Pump 2, Other, CSV File]
       type: DropDown
+    - data_bindings: []
+      layout_properties: {grid_position: 'NMUQYQ,WXYEUY'}
+      name: disclaimer_2
+      properties: {align: center, content: 'The pump curve equation follows the form aQ^2 +bQ +c, where Q is the pump flow rate. For testing purposes, please enter the coefficients a, b, and c:', format: markdown, visible: false}
+      type: RichText
+    - layout_properties: {grid_position: 'WYADPH,XHQURF'}
+      name: custom_a
+      properties: {text: 'Other Pump, a', visible: false}
+      type: Label
+    - layout_properties: {grid_position: 'WYADPH,EXMYEV'}
+      name: pump_a
+      properties: {visible: false}
+      type: TextBox
+    - layout_properties: {grid_position: 'ENBUXC,TMEDJK'}
+      name: custom_b
+      properties: {text: 'Other Pump, b', visible: false}
+      type: Label
+    - layout_properties: {grid_position: 'ENBUXC,JKCVQI'}
+      name: pump_b
+      properties: {visible: false}
+      type: TextBox
+    - layout_properties: {grid_position: 'SVQLCA,LVDXQH'}
+      name: custom_c
+      properties: {text: 'Other Pump, c', visible: false}
+      type: Label
+    - layout_properties: {grid_position: 'SVQLCA,QVDZKC'}
+      name: pump_c
+      properties: {visible: false}
+      type: TextBox
     - layout_properties: {grid_position: 'CDKKDW,HITXSK'}
       name: label_9
       properties: {text: Selected Tank}
@@ -89,7 +118,7 @@ components:
       layout_properties: {grid_position: 'CDKKDW,PMURJB'}
       name: tank
       properties:
-        items: [Sample Tank 1, Sample Tank 2, Sample Tank 3, Other]
+        items: [Sample Tank 1, Sample Tank 2, Sample Tank 3, Other, CSV File]
       type: DropDown
     - event_bindings: {click: calculate_click}
       layout_properties: {grid_position: 'CRJHKM,QMIIIX'}
