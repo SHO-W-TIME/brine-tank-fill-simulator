@@ -186,7 +186,7 @@ components:
       type: Label
     - layout_properties: {grid_position: 'IFGVFZ,MGIJFB'}
       name: references_list
-      properties: {text: (placeholder text 2020)}
+      properties: {text: (placeholder text 2)}
       type: Label
     layout_properties: {grid_position: 'GWDMZO,PYWVVI'}
     name: references_card
