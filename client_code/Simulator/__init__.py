@@ -105,3 +105,18 @@ class Simulator(SimulatorTemplate):
       self.custom_tanks.visible = False
       self.file_loader_tanks.visible = False
     pass
+
+  def f_show(self, **event_args):
+    """This method is called when the TextBox is shown on the screen"""
+    self.f.text = 0.02
+    pass
+
+  def LossVar_show(self, **event_args):
+    """This method is called when the TextBox is shown on the screen"""
+    self.LossVar.text = 0
+    pass
+
+  def rho_show(self, **event_args):
+    """This method is called when the TextBox is shown on the screen"""
+    self.rho.text = 64.1 #(Density of 23.3% salinity water)
+    pass

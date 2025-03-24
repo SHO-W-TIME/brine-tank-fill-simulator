@@ -24,7 +24,7 @@ components:
       properties: {text: Brine Density (lb/ft³)}
       type: Label
     - data_bindings: []
-      event_bindings: {}
+      event_bindings: {show: rho_show}
       layout_properties: {grid_position: 'HELLQO,PVSIXE'}
       name: rho
       properties: {enabled: true, placeholder: '', text: '', type: text}
@@ -60,7 +60,7 @@ components:
       name: label_5
       properties: {text: Darcy Friction Factor}
       type: Label
-    - event_bindings: {}
+    - event_bindings: {show: f_show}
       layout_properties: {grid_position: 'UNOGMK,PLFEKN'}
       name: f
       properties: {type: text}
@@ -82,7 +82,8 @@ components:
       name: label_7
       properties: {text: System Loss Variable}
       type: Label
-    - layout_properties: {grid_position: 'JZLOMU,WOGOLR'}
+    - event_bindings: {show: LossVar_show}
+      layout_properties: {grid_position: 'JZLOMU,WOGOLR'}
       name: LossVar
       properties: {}
       type: TextBox
