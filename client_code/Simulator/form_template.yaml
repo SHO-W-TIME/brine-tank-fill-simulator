@@ -96,7 +96,7 @@ components:
       layout_properties: {grid_position: 'YXCGRP,EEWVCC'}
       name: pump
       properties:
-        items: [Sample Pump 1, Sample Pump 2, Other, CSV File]
+        items: ['Sample Pump 1 (-0.005, -0.1, 50)', Sample Pump 2, Other, CSV File]
       type: DropDown
     - data_bindings: []
       layout_properties: {grid_position: 'NMUQYQ,WXYEUY'}
