@@ -21,7 +21,7 @@ components:
     - data_bindings: []
       layout_properties: {grid_position: 'HELLQO,LWXXJG'}
       name: label_1
-      properties: {text: Brine Density ρ (lb/ft³)}
+      properties: {font_size: 18, text: Brine Density ρ (lb/ft³)}
       type: Label
     - data_bindings: []
       event_bindings: {show: rho_show}
@@ -31,7 +31,7 @@ components:
       type: TextBox
     - layout_properties: {grid_position: 'YMJERN,DOBLIP'}
       name: label_2
-      properties: {text: Pipe Length (ft)}
+      properties: {font_size: 18, text: Pipe Length (ft)}
       type: Label
     - event_bindings: {}
       layout_properties: {grid_position: 'YMJERN,HPLCYF'}
@@ -40,7 +40,7 @@ components:
       type: TextBox
     - layout_properties: {grid_position: 'TVWUIA,PDSCNY'}
       name: label_3
-      properties: {text: Pipe Diameter (in)}
+      properties: {font_size: 18, text: Pipe Diameter (in)}
       type: Label
     - event_bindings: {}
       layout_properties: {grid_position: 'TVWUIA,EGKKDR'}
@@ -49,7 +49,7 @@ components:
       type: TextBox
     - layout_properties: {grid_position: 'RROBTT,ZJASZL'}
       name: label_4
-      properties: {align: left, text: Height Difference to Top Fill (ft)}
+      properties: {align: left, font_size: 18, text: Height Difference to Top Fill (ft)}
       type: Label
     - event_bindings: {}
       layout_properties: {grid_position: 'RROBTT,WBYGER'}
@@ -58,7 +58,7 @@ components:
       type: TextBox
     - layout_properties: {grid_position: 'UNOGMK,BFJAFL'}
       name: label_5
-      properties: {text: Darcy Friction Factor}
+      properties: {font_size: 18, text: Darcy Friction Factor}
       type: Label
     - event_bindings: {show: f_show}
       layout_properties: {grid_position: 'UNOGMK,PLFEKN'}
@@ -67,7 +67,7 @@ components:
       type: TextBox
     - layout_properties: {grid_position: 'TBUTRC,TWSHUV'}
       name: label_6
-      properties: {text: Total Minor Losses}
+      properties: {font_size: 18, text: Total Minor Losses}
       type: Label
     - event_bindings: {}
       layout_properties: {grid_position: 'TBUTRC,MWFTKV'}
@@ -80,7 +80,7 @@ components:
       type: Label
     - layout_properties: {grid_position: 'JZLOMU,OWNQRZ'}
       name: label_7
-      properties: {text: System Loss Variable}
+      properties: {font_size: 18, text: System Loss Variable}
       type: Label
     - event_bindings: {show: LossVar_show}
       layout_properties: {grid_position: 'JZLOMU,WOGOLR'}
@@ -89,7 +89,7 @@ components:
       type: TextBox
     - layout_properties: {grid_position: 'YXCGRP,OSRUUL'}
       name: label_8
-      properties: {text: Selected Pump}
+      properties: {font_size: 18, text: Selected Pump}
       type: Label
     - data_bindings: []
       event_bindings: {change: pump_change}
@@ -101,7 +101,7 @@ components:
     - data_bindings: []
       layout_properties: {grid_position: 'NMUQYQ,WXYEUY'}
       name: disclaimer_2
-      properties: {align: center, content: 'The pump curve equation follows the form aQ^2^ +bQ +c, where Q is the pump flow rate. For testing purposes, please enter the coefficients a, b, and c:', format: markdown, visible: false}
+      properties: {align: center, content: 'The pump curve equation follows the form aQ^2^ +bQ +c, where Q is the pump flow rate. For testing purposes, please enter the coefficients a, b, and c:', format: plain_text, visible: false}
       type: RichText
     - layout_properties: {grid_position: 'WYADPH,XHQURF'}
       name: custom_a
@@ -129,11 +129,11 @@ components:
       type: TextBox
     - layout_properties: {grid_position: 'JANBIQ,BWLDXP'}
       name: custom_pumps
-      properties: {text: Please provide a CSV file containing the pump parameter(s), visible: false}
+      properties: {font_size: 18, text: Please provide a CSV file containing the pump parameter(s), visible: false}
       type: Label
     - layout_properties: {grid_position: 'JANBIQ,LYPKDZ'}
       name: file_loader_pumps
-      properties: {file_types: '".csv"', visible: false}
+      properties: {file_types: '".csv"', font_size: 18, visible: false}
       type: FileLoader
     - layout_properties: {grid_position: 'CDKKDW,HITXSK'}
       name: label_9
@@ -156,17 +156,17 @@ components:
       type: TextBox
     - layout_properties: {grid_position: 'NQHVHZ,SDIMQG'}
       name: custom_tanks
-      properties: {text: Please provide a CSV file containing tank volume(s), visible: false}
+      properties: {font_size: 18, text: Please provide a CSV file containing tank volume(s), visible: false}
       type: Label
     - data_bindings: []
       layout_properties: {grid_position: 'NQHVHZ,YPBFOA'}
       name: file_loader_tanks
-      properties: {file_types: '".csv"', visible: false}
+      properties: {file_types: '".csv"', font_size: 18, visible: false}
       type: FileLoader
     - event_bindings: {click: calculate_click}
       layout_properties: {grid_position: 'CRJHKM,QMIIIX'}
       name: calculate
-      properties: {text: Calculate}
+      properties: {font_size: 24, icon: 'fa:arrow-circle-right', icon_align: right, role: filled-button, text: CALCULATE}
       type: Button
     - layout_properties: {grid_position: 'SUNNDX,MOODXZ'}
       name: flow_rate_result
@@ -209,17 +209,17 @@ components:
   - event_bindings: {click: how_to_use_click}
     layout_properties: {grid_position: 'CMPPHZ,YCZIFB'}
     name: how_to_use
-    properties: {text: How to Use}
+    properties: {icon: 'fa:question-circle', text: How to Use}
     type: Link
   - event_bindings: {click: simulator_click}
     layout_properties: {grid_position: 'LIQUKF,EIIHAD'}
     name: simulator
-    properties: {text: Simulator}
+    properties: {icon: 'fa:calculator', text: Simulator}
     type: Link
   - event_bindings: {click: references_click}
     layout_properties: {grid_position: 'BTXHUD,YQEXQY'}
     name: references
-    properties: {text: References}
+    properties: {icon: 'fa:book', text: References}
     type: Link
   layout_properties: {slot: left-nav}
   name: column_panel_1
