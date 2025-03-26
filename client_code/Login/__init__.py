@@ -21,5 +21,5 @@ class Login(LoginTemplate):
       alert('Username or password is not correct.')
     else:
       self.visible = False
-      self.
+      Simulator()
       
