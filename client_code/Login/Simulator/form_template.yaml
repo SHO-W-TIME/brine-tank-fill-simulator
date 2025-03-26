@@ -229,4 +229,7 @@ container:
   event_bindings: {refreshing_data_bindings: form_refreshing_data_bindings}
   properties: {html: '@theme:standard-page.html', visible: true}
   type: HtmlTemplate
+custom_component: false
+custom_component_container: false
 is_package: true
+properties: []

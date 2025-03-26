@@ -1,33 +1,30 @@
 components:
-- layout_properties: {grid_position: 'KIELUA,OQSXLA'}
+- layout_properties: {grid_position: 'RJSKFH,XWFHYZ'}
   name: label_1
-  properties: {bold: true, font_size: 30, text: Log In}
+  properties: {bold: true, font: '', font_size: 30, text: Log In}
   type: Label
-- layout_properties: {grid_position: 'TNPHRZ,MEVEDQ'}
+- layout_properties: {grid_position: 'YGWOYL,MMEZSR'}
   name: label_2
   properties: {font_size: 24, text: Username}
   type: Label
-- layout_properties: {grid_position: 'GONJET,UZHTTQ'}
+- layout_properties: {grid_position: 'QCOABW,ALNWKW'}
   name: username
   properties: {}
   type: TextBox
-- layout_properties: {grid_position: 'WEWBQZ,FKVOTA'}
+- layout_properties: {grid_position: 'ZZJUER,HVJMOD'}
   name: label_3
-  properties: {font_size: 24, text: Password}
+  properties: {font: '', font_size: 24, text: Password}
   type: Label
-- layout_properties: {grid_position: 'MTGEDJ,MLKFDM'}
+- layout_properties: {grid_position: 'FNWJIK,XUPFAH'}
   name: password
-  properties: {hide_text: true}
+  properties: {hide_text: true, visible: true}
   type: TextBox
-- event_bindings: {}
-  layout_properties: {grid_position: 'UOZYUN,CMARYG'}
+- event_bindings: {click: login_button_click}
+  layout_properties: {grid_position: 'MPYLUG,AZRUUM'}
   name: login_button
-  properties: {bold: true, font_size: 24, icon: 'fa:arrow-circle-right', icon_align: right, role: elevated-button, text: LOG IN}
+  properties: {bold: true, font_size: 24, icon: 'fa:arrow-circle-right', icon_align: right, role: filled-button, text: LOG IN}
   type: Button
 container:
-  data_bindings:
-  - {code: 'self.item['''']', property: visible, writeback: false}
-  event_bindings: {}
-  properties: {visible: true}
+  properties: {background: ''}
   type: ColumnPanel
 is_package: true
