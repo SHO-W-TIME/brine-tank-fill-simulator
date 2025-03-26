@@ -17,9 +17,9 @@ class Login(LoginTemplate):
 
   def login_button_click(self, **event_args):
     """This method is called when the button is clicked"""
-    if (self.username.text != 'test_user') or (self.password.text != '12345'):
+    if (self.username.text != 'test') or (self.password.text != '12345'):
       alert('Username or password is not correct.')
     else:
       self.visible = False
-      Simulator()
+      open_form('Simulator')
       
