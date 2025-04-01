@@ -30,11 +30,11 @@ class Simulator(SimulatorTemplate):
 
     if Q_solution:
       self.flow_rate_result.visible = True
-      self.flow_rate_result.text = "Calculated Flow Rate = " + str(round(Q_solution, 2)) + " gpm"
+      self.flow_rate_result.text = "Calculated Flow Rate = " + f"{Q_solution:.2f}" + " gpm"
 
     if t_fill:
       self.fill_time_result.visible = True
-      self.fill_time_result.text = "Calculated Fill Time = " + str(round(t_fill, 2)) + " min"
+      self.fill_time_result.text = "Calculated Fill Time = " + f"{t_fill:.2f}" + " min"
 
 
   def how_to_use_click(self, **event_args):
@@ -112,7 +112,7 @@ class Simulator(SimulatorTemplate):
 
   def f_show(self, **event_args):
     """This method is called when the TextBox is shown on the screen"""
-    self.f.text = 0.02
+    self.f.text = f"{0.02:.2f}"
     pass
 
   def LossVar_show(self, **event_args):
@@ -122,5 +122,5 @@ class Simulator(SimulatorTemplate):
 
   def rho_show(self, **event_args):
     """This method is called when the TextBox is shown on the screen"""
-    self.rho.text = 64.1 #(Density of 23.3% salinity water)
+    self.rho.text = f"{64.1:.2f}" #(Density of 23.3% salinity water)
     pass
