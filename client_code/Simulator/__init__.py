@@ -124,3 +124,5 @@ class Simulator(SimulatorTemplate):
     """This method is called when the TextBox is shown on the screen"""
     self.rho.text = 64.1 #(Density of 23.3% salinity water)
     pass
+
+  
