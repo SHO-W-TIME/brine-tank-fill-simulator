@@ -101,11 +101,11 @@ components:
     - data_bindings: []
       layout_properties: {grid_position: 'NMUQYQ,WXYEUY'}
       name: disclaimer_2
-      properties: {align: center, content: 'The pump curve equation follows the form aQ^2^ +bQ +c, where Q is the pump flow rate. For testing purposes, please enter the coefficients a, b, and c:', format: plain_text, visible: false}
+      properties: {align: center, content: 'The pump curve equation follows the form aQ^2^ +bQ +c, where Q is the pump flow rate. For testing purposes, please enter the coefficients a, b, and c:', font_size: 18, format: plain_text, visible: false}
       type: RichText
     - layout_properties: {grid_position: 'WYADPH,XHQURF'}
       name: custom_a
-      properties: {text: 'Other Pump, a', visible: false}
+      properties: {font_size: 18, text: 'Other Pump, a', visible: false}
       type: Label
     - layout_properties: {grid_position: 'WYADPH,EXMYEV'}
       name: pump_a
@@ -113,7 +113,7 @@ components:
       type: TextBox
     - layout_properties: {grid_position: 'ENBUXC,TMEDJK'}
       name: custom_b
-      properties: {text: 'Other Pump, b', visible: false}
+      properties: {font_size: 18, text: 'Other Pump, b', visible: false}
       type: Label
     - layout_properties: {grid_position: 'ENBUXC,JKCVQI'}
       name: pump_b
@@ -121,7 +121,7 @@ components:
       type: TextBox
     - layout_properties: {grid_position: 'SVQLCA,LVDXQH'}
       name: custom_c
-      properties: {text: 'Other Pump, c', visible: false}
+      properties: {font_size: 18, text: 'Other Pump, c', visible: false}
       type: Label
     - layout_properties: {grid_position: 'SVQLCA,QVDZKC'}
       name: pump_c
@@ -133,7 +133,7 @@ components:
       type: Label
     - layout_properties: {grid_position: 'JANBIQ,LYPKDZ'}
       name: file_loader_pumps
-      properties: {file_types: '".csv"', font_size: 18, visible: false}
+      properties: {file_types: '".csv"', font_size: 24, visible: false}
       type: FileLoader
     - layout_properties: {grid_position: 'CDKKDW,HITXSK'}
       name: label_9
@@ -148,7 +148,7 @@ components:
       type: DropDown
     - layout_properties: {grid_position: 'UHURAY,SURRUH'}
       name: custom_volume
-      properties: {text: Tank Volume (gal), visible: false}
+      properties: {font_size: 18, text: Tank Volume (gal), visible: false}
       type: Label
     - layout_properties: {grid_position: 'UHURAY,EUCOCC'}
       name: tank_v
@@ -161,7 +161,7 @@ components:
     - data_bindings: []
       layout_properties: {grid_position: 'NQHVHZ,YPBFOA'}
       name: file_loader_tanks
-      properties: {file_types: '".csv"', font_size: 18, visible: false}
+      properties: {file_types: '".csv"', font_size: 24, visible: false}
       type: FileLoader
     - event_bindings: {click: calculate_click}
       layout_properties: {full_width_row: false, grid_position: 'CRJHKM,QMIIIX'}
