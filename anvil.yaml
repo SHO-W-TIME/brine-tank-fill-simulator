@@ -43,6 +43,9 @@ services:
 - client_config: {allow_signup: true, confirm_email: false, enable_automatically: true, use_email: false}
   server_config: {user_table: users}
   source: /runtime/services/anvil/users.yml
+- client_config: {}
+  server_config: {}
+  source: /runtime/services/anvil/email.yml
 startup: {module: Login, type: form}
 startup_form: null
 uplink_visible: true
