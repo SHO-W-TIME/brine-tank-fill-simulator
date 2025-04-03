@@ -137,8 +137,11 @@ class Simulator(SimulatorTemplate):
     pass
 
 # Contact Page
-  def send_feedback(name,email,feedback):
+  #function to send email with entered fields
+  def send_feedback(name,email,topic,feedback):
     anvil.email.send(to="janetphan.work@gmail.com",
                      subject=f"Feedback from {name},",
                      text=f"""
-                     {name} has sent feedback from the brine tank simulator."""
+                     {name} has sent feedback from the brine tank simulator regarding {topic}. Their message is as follows:
+                     {feedback}
+                     """)
