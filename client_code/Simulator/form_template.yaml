@@ -21,7 +21,7 @@ components:
     - data_bindings: []
       layout_properties: {grid_position: 'HELLQO,LWXXJG'}
       name: label_1
-      properties: {font_size: 18, text: Brine Density ρ (lb/ft³)}
+      properties: {font_size: 18, text: 'Brine Density, ρ (lb/ft³)'}
       type: Label
     - data_bindings: []
       event_bindings: {show: rho_show}
@@ -180,11 +180,11 @@ components:
       type: Button
     - layout_properties: {grid_position: 'SUNNDX,MOODXZ'}
       name: flow_rate_result
-      properties: {align: center, visible: false}
+      properties: {align: center, bold: true, font_size: 24, visible: false}
       type: Label
     - layout_properties: {grid_position: 'VOKCCI,XDGSRD'}
       name: fill_time_result
-      properties: {align: center, visible: false}
+      properties: {align: center, bold: true, font_size: 24, visible: false}
       type: Label
     layout_properties: {full_width_row: false, grid_position: 'MERXUS,MZYTGY'}
     name: simulator_card
