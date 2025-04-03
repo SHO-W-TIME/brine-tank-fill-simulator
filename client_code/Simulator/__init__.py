@@ -13,6 +13,7 @@ class Simulator(SimulatorTemplate):
     self.simulator_card.visible = False
     self.how_to_use_card.visible = True
     self.references_card.visible = False
+    self.contact_card.visible=False
     # Any code you write here will run before the form opens.
   
   def calculate_click(self, **event_args):
@@ -42,6 +43,7 @@ class Simulator(SimulatorTemplate):
     self.how_to_use_card.visible = True
     self.simulator_card.visible = False
     self.references_card.visible = False
+    self.contact_card.visible=False
     pass
 
   def simulator_click(self, **event_args):
@@ -49,6 +51,7 @@ class Simulator(SimulatorTemplate):
     self.simulator_card.visible = True
     self.how_to_use_card.visible = False
     self.references_card.visible = False
+    self.contact_card.visible=False
     pass
 
   def references_click(self, **event_args):
@@ -56,7 +59,15 @@ class Simulator(SimulatorTemplate):
     self.references_card.visible = True
     self.simulator_card.visible = False
     self.how_to_use_card.visible = False
+    self.contact_card.visible=False
     pass
+
+  def contact_click(self,**event_args):
+    # switches to contact page when clicked
+    self.contact_card.visible=True
+    self.references_card.visible=False
+    self.simulator_card.visible=False
+    self.how_to_use_card.visible=False
 
   def form_refreshing_data_bindings(self, **event_args):
     """This method is called when refresh_data_bindings is called"""
@@ -124,3 +135,10 @@ class Simulator(SimulatorTemplate):
     """This method is called when the TextBox is shown on the screen"""
     self.rho.text = f"{64.1:.2f}" #(Density of 23.3% salinity water)
     pass
+
+# Contact Page
+  def send_feedback(name,email,feedback):
+    anvil.email.send(to="janetphan.work@gmail.com",
+                     subject=f"Feedback from {name},",
+                     text=f"""
+                     {name} has sent feedback from the brine tank simulator."""
