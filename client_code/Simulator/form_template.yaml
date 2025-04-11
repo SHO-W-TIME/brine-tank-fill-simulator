@@ -18,13 +18,11 @@ components:
       name: label_12
       properties: {align: center, bold: true, font_size: 24, text: Simulator}
       type: Label
-    - data_bindings: []
-      layout_properties: {grid_position: 'HELLQO,LWXXJG'}
+    - layout_properties: {grid_position: 'HELLQO,LWXXJG'}
       name: label_1
       properties: {font_size: 18, text: 'Brine Density, ρ (lb/ft³)'}
       type: Label
-    - data_bindings: []
-      event_bindings: {show: rho_show}
+    - event_bindings: {show: rho_show}
       layout_properties: {grid_position: 'HELLQO,PVSIXE'}
       name: rho
       properties: {enabled: true, placeholder: '', text: '', type: text}
@@ -91,15 +89,13 @@ components:
       name: label_8
       properties: {font_size: 18, text: Selected Pump}
       type: Label
-    - data_bindings: []
-      event_bindings: {change: pump_change}
+    - event_bindings: {change: pump_change}
       layout_properties: {grid_position: 'YXCGRP,EEWVCC'}
       name: pump
       properties:
         items: [Sample Pump 1, Sample Pump 2, Other, CSV File]
       type: DropDown
-    - data_bindings: []
-      layout_properties: {grid_position: 'NMUQYQ,WXYEUY'}
+    - layout_properties: {grid_position: 'NMUQYQ,WXYEUY'}
       name: disclaimer_2
       properties: {align: center, content: 'The pump curve equation follows the form aQ^2^ +bQ +c, where Q is the pump flow rate. For testing purposes, please enter the coefficients a, b, and c:', font_size: 18, format: plain_text, visible: false}
       type: RichText
@@ -139,8 +135,7 @@ components:
       name: label_9
       properties: {font_size: 18, text: Selected Tank}
       type: Label
-    - data_bindings: []
-      event_bindings: {change: tank_change}
+    - event_bindings: {change: tank_change}
       layout_properties: {grid_position: 'CDKKDW,PMURJB'}
       name: tank
       properties:
@@ -158,8 +153,7 @@ components:
       name: custom_tanks
       properties: {font_size: 18, text: Please provide a CSV file containing tank volume(s), visible: false}
       type: Label
-    - data_bindings: []
-      layout_properties: {grid_position: 'NQHVHZ,YPBFOA'}
+    - layout_properties: {grid_position: 'NQHVHZ,YPBFOA'}
       name: file_loader_tanks
       properties: {file_types: '".csv"', font_size: 24, visible: false}
       type: FileLoader
@@ -203,6 +197,51 @@ components:
     name: references_card
     properties: {role: outlined-card}
     type: ColumnPanel
+  - components:
+    - layout_properties: {grid_position: 'KLZQWP,QQZKVW'}
+      name: label_14
+      properties: {align: center, bold: true, font_size: 24, text: Contact}
+      type: Label
+    - layout_properties: {grid_position: 'UCPKRZ,TDXHFT'}
+      name: send
+      properties:
+        role: outlined-button
+        text: |
+          Submit
+      type: Button
+    - layout_properties: {grid_position: 'VPGKON,QVRFUO'}
+      name: label_16
+      properties: {bold: true, text: 'For any questions, comments, or concerns, please use this form to contact us, and we will respond as soon as possible.'}
+      type: Label
+    - layout_properties: {grid_position: 'HBQTIL,NIPPKJ'}
+      name: label_13
+      properties: {text: Name}
+      type: Label
+    - event_bindings: {pressed_enter: name_box_pressed_enter}
+      layout_properties: {grid_position: 'HBQTIL,RNCTTM'}
+      name: name_box
+      properties: {hide_text: false, text: '', type: text, visible: true}
+      type: TextBox
+    - layout_properties: {grid_position: 'HTCVES,TRVSIU'}
+      name: email
+      properties: {}
+      type: TextBox
+    - layout_properties: {grid_position: 'WISRFD,SQARJC'}
+      name: label_15
+      properties: {align: left, bold: true, text: Please enter your concerns or feedback here!}
+      type: Label
+    - layout_properties: {grid_position: 'HTCVES,SDHYCG'}
+      name: label_17
+      properties: {text: Email}
+      type: Label
+    - layout_properties: {grid_position: 'IAGWNF,CKOCYD'}
+      name: feedback
+      properties: {}
+      type: TextArea
+    layout_properties: {grid_position: 'BILMYE,FEBSFH'}
+    name: contact_card
+    properties: {role: outlined-card}
+    type: ColumnPanel
   layout_properties: {slot: default}
   name: content_panel
   properties: {col_widths: '{}'}
@@ -229,7 +268,12 @@ components:
   - event_bindings: {click: references_click}
     layout_properties: {grid_position: 'BTXHUD,YQEXQY'}
     name: references
-    properties: {font_size: 18, icon: 'fa:book', text: References}
+    properties: {bold: false, font_size: 18, icon: 'fa:book', text: References}
+    type: Link
+  - event_bindings: {click: contact_click}
+    layout_properties: {grid_position: 'HOSOWQ,ERCOGZ'}
+    name: contact
+    properties: {bold: false, text: Contact}
     type: Link
   layout_properties: {slot: left-nav}
   name: column_panel_1
