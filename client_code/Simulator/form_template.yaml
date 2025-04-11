@@ -213,26 +213,26 @@ components:
       name: label_16
       properties: {bold: true, text: 'For any questions, comments, or concerns, please use this form to contact us, and we will respond as soon as possible.'}
       type: Label
-    - layout_properties: {grid_position: 'HBQTIL,NIPPKJ'}
+    - layout_properties: {grid_position: 'HBQTIL,NIPPKJ VRMDMA,ZHPYOR'}
       name: label_13
       properties: {text: Name}
       type: Label
     - event_bindings: {pressed_enter: name_box_pressed_enter}
-      layout_properties: {grid_position: 'HBQTIL,RNCTTM'}
+      layout_properties: {grid_position: 'HBQTIL,NIPPKJ EMNQFF,KBKLLO'}
       name: name_box
       properties: {hide_text: false, text: '', type: text, visible: true}
       type: TextBox
-    - layout_properties: {grid_position: 'HTCVES,TRVSIU'}
+    - layout_properties: {grid_position: 'HBQTIL,RNCTTM'}
+      name: label_17
+      properties: {text: Email}
+      type: Label
+    - layout_properties: {grid_position: 'HBQTIL,RNCTTM TUQQDN,NUMIUL'}
       name: email
       properties: {}
       type: TextBox
     - layout_properties: {grid_position: 'WISRFD,SQARJC'}
       name: label_15
       properties: {align: left, bold: true, text: Please enter your concerns or feedback here!}
-      type: Label
-    - layout_properties: {grid_position: 'HTCVES,SDHYCG'}
-      name: label_17
-      properties: {text: Email}
       type: Label
     - layout_properties: {grid_position: 'IAGWNF,CKOCYD'}
       name: feedback
