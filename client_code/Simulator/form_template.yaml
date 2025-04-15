@@ -7,7 +7,7 @@ components:
       type: Label
     - layout_properties: {grid_position: 'QNZQJD,IPSHAC'}
       name: how_to_use_explanation
-      properties: {content: (placeholder text 1)}
+      properties: {content: 'Welcome to the Brine Tank Fill-time Simulator. To get started, click on the simulator tab. For insight as to what was used to create the simulator, click on the references tab. To contact the developers, click on the contact page.First, enter your system parameters in their respective fields. If a field is left empty, then the listed default value will be used.Next, for the pump system and the tank used, there are two dropdown options to fill in the fields: manual input and CSV (comma separated value) file upload. If manual input is chosen, then you will be given fields to enter your values into. If CSV file upload is chosen, there will be a button for you to click and upload your file into.Finally, hit the calculate button. The calculated fill time will then be displayed at the bottom of the page.If you have any questions, feedback, or encountered a bug and wish to report it, please contact us through the contact page. '}
       type: RichText
     layout_properties: {grid_position: 'CDWMUO,HYOIFU'}
     name: how_to_use_card
