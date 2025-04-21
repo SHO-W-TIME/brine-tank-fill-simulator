@@ -20,11 +20,15 @@ class Simulator(SimulatorTemplate):
     """This method is called when the button is clicked"""
     # Call different variations of the solver code depending on whether CSVs are being sent or not?
     if self.pump.selected_value == "CSV File": #if CSV feature here is not empty, obtain a,b,c
-      pumps = anvil.server.call('import_pumps_csv')
-      print(pumps)
-    if self.tank.selected_value == "CSV File": #if CSV feature here is not empty, collect vector of custom tank volumes
-      tanks = anvil.server.call('import_tanks_csv')
-      
+      pump_list = self.file_loader_pumps.file.get_bytes().decode()
+      print(pump_list)
+    if self.tank.selected_value == "CSV File": #if CSV feature here is not empty, collect vector of custom tank volus
+      tank_list = self.file_loader_tanks.file.get_bytes().decode()
+      tank_list = tank_list.split('\r\n')
+      tank_list.pop(0)
+      tank_list.pop(-1)
+      tank_list = [int(x) for x in tank_list]
+      print(tank_list)
 
     if (self.pump.selected_value != "CSV File") and (self.tank.selected_value != "CSV File"):
       Q_solution, t_fill = anvil.server.call('anvilSolver', 
@@ -47,15 +51,32 @@ class Simulator(SimulatorTemplate):
                                            float(self.K_minor.text),
                                            float(self.LossVar.text),
                                            self.pump.selected_value,
-                                           tanks)
+                                           tank_list)
 
-    if Q_solution:
-      self.flow_rate_result.visible = True
-      self.flow_rate_result.text = "Calculated Flow Rate = " + f"{Q_solution:.2f}" + " gpm"
-
-    if t_fill:
-      self.fill_time_result.visible = True
-      self.fill_time_result.text = "Calculated Fill Time = " + f"{t_fill:.2f}" + " min"
+    result_dict = {}
+    result_items = []
+    
+    if (self.pump.selected_value != "CSV File") and (self.tank.selected_value != "CSV File"):
+      self.result_grid.visible = False
+      if Q_solution:
+        self.flow_rate_result.visible = True
+        self.flow_rate_result.text = "Calculated Flow Rate = " + f"{Q_solution:.2f}" + " gpm"
+      if t_fill:
+        self.fill_time_result.visible = True
+        self.fill_time_result.text = "Calculated Fill Time = " + f"{t_fill:.2f}" + " min"
+    else:
+      self.result_grid.visible = True
+      self.flow_rate_result.visible = False
+      for pump_name in list([self.pump.selected_value]):
+        for j in range(len(tank_list)):
+          result_dict['Pump'] = pump_name
+          result_dict['Tank Volume (gal)'] = tank_list[j]
+          result_dict['Flow Rate (gpm)'] = f"{Q_solution:.2f}"
+          result_dict['Fill Time (min)'] = f"{t_fill[j]:.2f}"
+          print(result_dict)
+          result_items.append(result_dict)
+    
+          
 
 
   def how_to_use_click(self, **event_args):
@@ -165,3 +186,13 @@ class Simulator(SimulatorTemplate):
                      {name} has sent feedback from the brine tank simulator regarding {topic}. Their message is as follows:
                      {feedback}
                      """)
+
+  def file_loader_pumps_change(self, file, **event_args):
+    """This method is called when a new file is loaded into this FileLoader"""
+    print(f"The file's content type is: {file.content_type}")
+    print(f"The file's contents are: '{file.get_bytes()}'")
+
+  def file_loader_tanks_change(self, file, **event_args):
+    """This method is called when a new file is loaded into this FileLoader"""
+    print(f"The file's content type is: {file.content_type}")
+    print(f"The file's contents are: '{file.get_bytes()}'")

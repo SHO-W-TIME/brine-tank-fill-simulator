@@ -8,5 +8,4 @@ unique_ids:
     Simulator.RowTemplate1: '1745240161260337283323345.9931'
   modules: {}
   scripts: {}
-  server_modules:
-    ServerModule1: '1745241374308888372770706.8962'
+  server_modules: {}
