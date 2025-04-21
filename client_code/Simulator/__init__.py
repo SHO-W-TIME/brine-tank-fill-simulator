@@ -18,6 +18,12 @@ class Simulator(SimulatorTemplate):
   
   def calculate_click(self, **event_args):
     """This method is called when the button is clicked"""
+    # Call different variations of the solver code depending on whether CSVs are being sent or not?
+    if self.pump.selected_value == "CSV File": #if CSV feature here is not empty, obtain a,b,c
+      anvil.server.call('pumpCoefficients')
+    if self.tank.selected_value == "CSV File": #if CSV feature here is not empty, collect vector of custom tank volumes
+      tanks = anvil.server.call('tankVolumes')
+      print(tanks)
     Q_solution, t_fill = anvil.server.call('anvilSolver', 
                                            float(self.rho.text), 
                                            float(self.L.text), 
