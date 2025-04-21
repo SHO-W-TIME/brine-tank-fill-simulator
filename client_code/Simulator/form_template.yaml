@@ -20,18 +20,22 @@ components:
       name: label_12
       properties: {align: center, bold: true, font_size: 24, text: Simulator}
       type: Label
-    - layout_properties: {grid_position: 'HELLQO,LWXXJG GVQHWJ,TWKFPA'}
-      name: label_1
-      properties: {font_size: 18, text: 'Brine Density, ρ (lb/ft³)'}
-      type: Label
-    - layout_properties: {grid_position: 'HELLQO,LWXXJG UZINRR,QNTJOH'}
+    - layout_properties: {grid_position: 'GLZJZQ,EDIOSE'}
       name: label_18
-      properties: {}
+      properties: {text: 'Please enter the following values. If no value is entered, then the shown default value will be used. Negative values will not be accepted.'}
       type: Label
-    - event_bindings: {show: rho_show}
+    - layout_properties: {grid_position: 'HELLQO,LWXXJG'}
+      name: label_1
+      properties:
+        font_size: 18
+        text: |
+          Brine Density, ρ (lb/ft³)
+      type: Label
+    - data_bindings: []
+      event_bindings: {show: rho_show}
       layout_properties: {grid_position: 'HELLQO,PVSIXE'}
       name: rho
-      properties: {enabled: true, placeholder: '', text: '', type: text}
+      properties: {enabled: true, placeholder: '64.1', text: '', type: text}
       type: TextBox
     - layout_properties: {grid_position: 'YMJERN,DOBLIP'}
       name: label_2
@@ -40,7 +44,7 @@ components:
     - event_bindings: {}
       layout_properties: {grid_position: 'YMJERN,HPLCYF'}
       name: L
-      properties: {enabled: true, placeholder: '', type: text}
+      properties: {enabled: true, placeholder: '4', type: text}
       type: TextBox
     - layout_properties: {grid_position: 'TVWUIA,PDSCNY'}
       name: label_3
@@ -49,7 +53,7 @@ components:
     - event_bindings: {}
       layout_properties: {grid_position: 'TVWUIA,EGKKDR'}
       name: D
-      properties: {enabled: true, placeholder: '', type: text}
+      properties: {enabled: true, placeholder: 1/12, type: text}
       type: TextBox
     - layout_properties: {grid_position: 'RROBTT,ZJASZL'}
       name: label_4
@@ -58,7 +62,7 @@ components:
     - event_bindings: {}
       layout_properties: {grid_position: 'RROBTT,WBYGER'}
       name: h_elevation
-      properties: {type: text}
+      properties: {placeholder: '4', type: text}
       type: TextBox
     - layout_properties: {grid_position: 'UNOGMK,BFJAFL'}
       name: label_5
@@ -67,7 +71,7 @@ components:
     - event_bindings: {show: f_show}
       layout_properties: {grid_position: 'UNOGMK,PLFEKN'}
       name: f
-      properties: {type: text}
+      properties: {placeholder: '0.02', type: text}
       type: TextBox
     - layout_properties: {grid_position: 'TBUTRC,TWSHUV'}
       name: label_6
@@ -76,7 +80,7 @@ components:
     - event_bindings: {}
       layout_properties: {grid_position: 'TBUTRC,MWFTKV'}
       name: K_minor
-      properties: {hide_text: false, type: text}
+      properties: {hide_text: false, placeholder: '3.5', type: text}
       type: TextBox
     - layout_properties: {grid_position: 'CVHCIP,XRDTJJ'}
       name: disclaimer_1
