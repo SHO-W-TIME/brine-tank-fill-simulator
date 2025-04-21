@@ -20,11 +20,14 @@ class Simulator(SimulatorTemplate):
     """This method is called when the button is clicked"""
     # Call different variations of the solver code depending on whether CSVs are being sent or not?
     if self.pump.selected_value == "CSV File": #if CSV feature here is not empty, obtain a,b,c
-      anvil.server.call('pumpCoefficients')
+      pumps = anvil.server.call('import_pumps_csv')
+      print(pumps)
     if self.tank.selected_value == "CSV File": #if CSV feature here is not empty, collect vector of custom tank volumes
-      tanks = anvil.server.call('tankVolumes')
-      print(tanks)
-    Q_solution, t_fill = anvil.server.call('anvilSolver', 
+      tanks = anvil.server.call('import_tanks_csv')
+      
+
+    if (self.pump.selected_value != "CSV File") and (self.tank.selected_value != "CSV File"):
+      Q_solution, t_fill = anvil.server.call('anvilSolver', 
                                            float(self.rho.text), 
                                            float(self.L.text), 
                                            (float(self.D.text)/12),
@@ -34,6 +37,17 @@ class Simulator(SimulatorTemplate):
                                            float(self.LossVar.text),
                                            self.pump.selected_value,
                                            self.tank.selected_value)
+    else:
+      Q_solution, t_fill = anvil.server.call('anvilSolver_CSV', 
+                                           float(self.rho.text), 
+                                           float(self.L.text), 
+                                           (float(self.D.text)/12),
+                                           float(self.h_elevation.text),
+                                           float(self.f.text),
+                                           float(self.K_minor.text),
+                                           float(self.LossVar.text),
+                                           self.pump.selected_value,
+                                           tanks)
 
     if Q_solution:
       self.flow_rate_result.visible = True

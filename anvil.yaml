@@ -47,7 +47,8 @@ package_name: Brine_Tank_Fill_Simulator
 renamed: true
 runtime_options:
   client_version: '3'
-  server_spec: {base: python310-minimal}
+  server_spec: {base: python310-datascience}
+  server_spec_disabled: {base: python310-minimal, requirements: ''}
   server_version: python3-sandbox
   version: 2
 services:
