@@ -5,11 +5,59 @@ components:
       name: label_11
       properties: {align: center, bold: true, font_size: 24, text: How To Use}
       type: Label
-    - layout_properties: {grid_position: 'QNZQJD,IPSHAC'}
+    - components:
+      - name: image_1
+        properties: {source: _/theme/Screenshot 2025-04-24 230521.png}
+        type: Image
+      - layout_properties: {}
+        name: label_18
+        properties:
+          align: center
+          text: |
+            Next, for the pump system and the tank used, there are three dropdown options to fill in the fields: a sample set of values, manual input, and CSV (comma separated value) file upload.
+        type: Label
+      - layout_properties: {}
+        name: image_2
+        properties: {source: _/theme/Screenshot 2025-04-24 230826.png}
+        type: Image
+      - layout_properties: {}
+        name: label_19
+        properties: {align: center, text: 'If manual input is chosen, then you will be given fields to enter your values into.'}
+        type: Label
+      - layout_properties: {}
+        name: image_3
+        properties: {source: _/theme/Screenshot 2025-04-24 230849.png}
+        type: Image
+      - layout_properties: {}
+        name: label_20
+        properties: {align: center, text: 'If CSV file upload is chosen, there will be a button for you to click and upload your file into.'}
+        type: Label
+      - layout_properties: {}
+        name: image_4
+        properties: {source: _/theme/Screenshot 2025-04-24 230901.png}
+        type: Image
+      - layout_properties: {}
+        name: label_21
+        properties:
+          align: center
+          text: |
+            Finally, hit the calculate button. The calculated fill time will then be displayed at the bottom of the page.
+        type: Label
+      - name: image_5
+        properties: {}
+        type: Image
+      - layout_properties: {}
+        name: label_22
+        properties: {align: center, text: 'If you have any questions, feedback, or encountered a bug and wish to report it, please contact us through the contact page. '}
+        type: Label
+      - name: image_6
+        properties: {}
+        type: Image
+      layout_properties: {grid_position: 'QNZQJD,IPSHAC'}
       name: how_to_use_explanation
       properties:
         align: center
-        content: "Welcome to the Brine Tank Fill-time Simulator. \n\nTo get started, click on the simulator tab. For insight as to what was used to create the simulator, click on the references tab. To contact the developers, click on the contact page.\n\nFirst, enter your system parameters in their respective fields. If a field is left empty, then the listed default value will be used.\n\nNext, for the pump system and the tank used, there are two dropdown options to fill in the fields: manual input and CSV (comma separated value) file upload. If manual input is chosen, then you will be given fields to enter your values into. If CSV file upload is chosen, there will be a button for you to click and upload your file into.\n\nFinally, hit the calculate button. The calculated fill time will then be displayed at the bottom of the page.\n\nIf you have any questions, feedback, or encountered a bug and wish to report it, please contact us through the contact page.\_"
+        content: "Welcome to the Brine Tank Fill-time Simulator. \n\nTo get started, click on the simulator tab. For insight as to what was used to create the simulator, click on the references tab. To contact the developers, click on the contact page. The tabs can be seen on the left side of the page.\n\nFirst, enter your system parameters in their respective fields. If a field is left empty, then the listed default value will be used."
         font_size: 18
       type: RichText
     layout_properties: {grid_position: 'CDWMUO,HYOIFU'}
@@ -21,6 +69,10 @@ components:
       name: label_12
       properties: {align: center, bold: true, font_size: 24, text: Simulator}
       type: Label
+    - layout_properties: {grid_position: 'YJQHHS,SCRDWR'}
+      name: disclaimer_1_copy
+      properties: {align: center, bold: true, font_size: 18, text: 'Please enter the following values. If no value is entered, then the shown default value will be used. Negative values will not be accepted.'}
+      type: Label
     - layout_properties: {grid_position: 'HELLQO,LWXXJG'}
       name: label_1
       properties: {font_size: 18, text: 'Brine Density, ρ (lb/ft³)'}
@@ -28,7 +80,7 @@ components:
     - event_bindings: {show: rho_show}
       layout_properties: {grid_position: 'HELLQO,PVSIXE'}
       name: rho
-      properties: {enabled: true, placeholder: '', text: '', type: text}
+      properties: {enabled: true, placeholder: '64.1', text: '', type: text}
       type: TextBox
     - layout_properties: {grid_position: 'YMJERN,DOBLIP'}
       name: label_2
@@ -37,7 +89,7 @@ components:
     - event_bindings: {}
       layout_properties: {grid_position: 'YMJERN,HPLCYF'}
       name: L
-      properties: {enabled: true, placeholder: '', type: text}
+      properties: {enabled: true, placeholder: '4', type: text}
       type: TextBox
     - layout_properties: {grid_position: 'TVWUIA,PDSCNY'}
       name: label_3
@@ -46,7 +98,7 @@ components:
     - event_bindings: {}
       layout_properties: {grid_position: 'TVWUIA,EGKKDR'}
       name: D
-      properties: {enabled: true, placeholder: '', type: text}
+      properties: {enabled: true, placeholder: 1/12, type: text}
       type: TextBox
     - layout_properties: {grid_position: 'RROBTT,ZJASZL'}
       name: label_4
@@ -55,7 +107,7 @@ components:
     - event_bindings: {}
       layout_properties: {grid_position: 'RROBTT,WBYGER'}
       name: h_elevation
-      properties: {type: text}
+      properties: {placeholder: '4', type: text}
       type: TextBox
     - layout_properties: {grid_position: 'UNOGMK,BFJAFL'}
       name: label_5
@@ -64,7 +116,7 @@ components:
     - event_bindings: {show: f_show}
       layout_properties: {grid_position: 'UNOGMK,PLFEKN'}
       name: f
-      properties: {type: text}
+      properties: {placeholder: '0.02', type: text}
       type: TextBox
     - layout_properties: {grid_position: 'TBUTRC,TWSHUV'}
       name: label_6
@@ -73,7 +125,7 @@ components:
     - event_bindings: {}
       layout_properties: {grid_position: 'TBUTRC,MWFTKV'}
       name: K_minor
-      properties: {hide_text: false, type: text}
+      properties: {hide_text: false, placeholder: '3.5', type: text}
       type: TextBox
     - layout_properties: {grid_position: 'CVHCIP,XRDTJJ'}
       name: disclaimer_1
@@ -225,20 +277,13 @@ components:
       name: label_14
       properties: {align: center, bold: true, font_size: 24, text: Contact}
       type: Label
-    - layout_properties: {grid_position: 'UCPKRZ,TDXHFT'}
-      name: send
-      properties:
-        role: outlined-button
-        text: |
-          Submit
-      type: Button
     - layout_properties: {grid_position: 'VPGKON,QVRFUO'}
       name: label_16
-      properties: {bold: true, text: 'For any questions, comments, or concerns, please use this form to contact us, and we will respond as soon as possible.'}
+      properties: {align: center, bold: true, text: 'For any questions, comments, or concerns, please use this form to contact us, and we will respond as soon as possible.'}
       type: Label
     - layout_properties: {grid_position: 'HBQTIL,NIPPKJ VRMDMA,ZHPYOR'}
       name: label_13
-      properties: {text: Name}
+      properties: {bold: true, text: Name}
       type: Label
     - event_bindings: {}
       layout_properties: {grid_position: 'HBQTIL,NIPPKJ EMNQFF,KBKLLO'}
@@ -247,7 +292,7 @@ components:
       type: TextBox
     - layout_properties: {grid_position: 'HBQTIL,RNCTTM'}
       name: label_17
-      properties: {text: Email}
+      properties: {bold: true, text: Email}
       type: Label
     - layout_properties: {grid_position: 'HBQTIL,RNCTTM TUQQDN,NUMIUL'}
       name: email
@@ -255,12 +300,19 @@ components:
       type: TextBox
     - layout_properties: {grid_position: 'WISRFD,SQARJC'}
       name: label_15
-      properties: {align: left, bold: true, text: Please enter your concerns or feedback here!}
+      properties: {align: center, bold: true, text: Please enter your concerns or feedback here!}
       type: Label
     - layout_properties: {grid_position: 'IAGWNF,CKOCYD'}
       name: feedback
       properties: {}
       type: TextArea
+    - layout_properties: {grid_position: 'PAHTNA,GWCSSJ'}
+      name: send
+      properties:
+        role: outlined-button
+        text: |
+          Submit
+      type: Button
     layout_properties: {grid_position: 'BILMYE,FEBSFH'}
     name: contact_card
     properties: {role: outlined-card}
