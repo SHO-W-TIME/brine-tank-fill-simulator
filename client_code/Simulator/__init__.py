@@ -25,7 +25,6 @@ class Simulator(SimulatorTemplate):
     if self.tank.selected_value == "CSV File": #if CSV feature here is not empty, collect vector of custom tank volus
       tank_list = self.file_loader_tanks.file.get_bytes().decode()
       tank_list = tank_list.split('\r\n')
-      tank_list.pop(0)
       tank_list.pop(-1)
       tank_list = [int(x) for x in tank_list]
       print(tank_list)
@@ -53,11 +52,14 @@ class Simulator(SimulatorTemplate):
                                            self.pump.selected_value,
                                            tank_list)
 
+    print(Q_solution, t_fill)
+
     result_dict = {}
     result_items = []
     
     if (self.pump.selected_value != "CSV File") and (self.tank.selected_value != "CSV File"):
       self.result_grid.visible = False
+      self.repeating_panel_1.visible = False
       if Q_solution:
         self.flow_rate_result.visible = True
         self.flow_rate_result.text = "Calculated Flow Rate = " + f"{Q_solution:.2f}" + " gpm"
@@ -66,16 +68,18 @@ class Simulator(SimulatorTemplate):
         self.fill_time_result.text = "Calculated Fill Time = " + f"{t_fill:.2f}" + " min"
     else:
       self.result_grid.visible = True
+      self.repeating_panel_1.visible = True
       self.flow_rate_result.visible = False
       for pump_name in list([self.pump.selected_value]):
         for j in range(len(tank_list)):
-          result_dict['Pump'] = pump_name
-          result_dict['Tank Volume (gal)'] = tank_list[j]
-          result_dict['Flow Rate (gpm)'] = f"{Q_solution:.2f}"
-          result_dict['Fill Time (min)'] = f"{t_fill[j]:.2f}"
-          print(result_dict)
+          result_dict['pump'] = pump_name
+          result_dict['tank'] = tank_list[j]
+          result_dict['flow'] = f"{Q_solution:.2f}"
+          result_dict['fill'] = f"{t_fill[j]:.2f}"
           result_items.append(result_dict)
-    
+          
+      print(result_items)
+      self.repeating_panel_1.items = result_items
           
 
 

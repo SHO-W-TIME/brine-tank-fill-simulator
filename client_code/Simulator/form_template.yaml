@@ -6,8 +6,9 @@ components:
       properties: {align: center, bold: true, font_size: 24, text: How To Use}
       type: Label
     - components:
-      - name: image_1
-        properties: {source: _/theme/Screenshot 2025-04-24 230521.png}
+      - layout_properties: {}
+        name: image_1
+        properties: {source: _/theme/Anvil image.png}
         type: Image
       - layout_properties: {}
         name: label_18
@@ -80,7 +81,7 @@ components:
     - event_bindings: {show: rho_show}
       layout_properties: {grid_position: 'HELLQO,PVSIXE'}
       name: rho
-      properties: {enabled: true, placeholder: '64.1', text: '', type: text}
+      properties: {enabled: true, placeholder: '64.1', text: '64.1', type: text}
       type: TextBox
     - layout_properties: {grid_position: 'YMJERN,DOBLIP'}
       name: label_2
@@ -89,7 +90,7 @@ components:
     - event_bindings: {}
       layout_properties: {grid_position: 'YMJERN,HPLCYF'}
       name: L
-      properties: {enabled: true, placeholder: '4', type: text}
+      properties: {enabled: true, placeholder: '4', text: '4', type: text}
       type: TextBox
     - layout_properties: {grid_position: 'TVWUIA,PDSCNY'}
       name: label_3
@@ -98,7 +99,7 @@ components:
     - event_bindings: {}
       layout_properties: {grid_position: 'TVWUIA,EGKKDR'}
       name: D
-      properties: {enabled: true, placeholder: 1/12, type: text}
+      properties: {enabled: true, placeholder: '1', text: '1', type: text}
       type: TextBox
     - layout_properties: {grid_position: 'RROBTT,ZJASZL'}
       name: label_4
@@ -107,7 +108,7 @@ components:
     - event_bindings: {}
       layout_properties: {grid_position: 'RROBTT,WBYGER'}
       name: h_elevation
-      properties: {placeholder: '4', type: text}
+      properties: {placeholder: '4', text: '4', type: text}
       type: TextBox
     - layout_properties: {grid_position: 'UNOGMK,BFJAFL'}
       name: label_5
@@ -116,7 +117,7 @@ components:
     - event_bindings: {show: f_show}
       layout_properties: {grid_position: 'UNOGMK,PLFEKN'}
       name: f
-      properties: {placeholder: '0.02', type: text}
+      properties: {placeholder: '0.02', text: '0.02', type: text}
       type: TextBox
     - layout_properties: {grid_position: 'TBUTRC,TWSHUV'}
       name: label_6
@@ -125,7 +126,7 @@ components:
     - event_bindings: {}
       layout_properties: {grid_position: 'TBUTRC,MWFTKV'}
       name: K_minor
-      properties: {hide_text: false, placeholder: '3.5', type: text}
+      properties: {hide_text: false, placeholder: '3.5', text: '3.5', type: text}
       type: TextBox
     - layout_properties: {grid_position: 'CVHCIP,XRDTJJ'}
       name: disclaimer_1
@@ -138,7 +139,7 @@ components:
     - event_bindings: {show: LossVar_show}
       layout_properties: {grid_position: 'JZLOMU,WOGOLR'}
       name: LossVar
-      properties: {}
+      properties: {placeholder: '0', text: '0'}
       type: TextBox
     - layout_properties: {grid_position: 'YXCGRP,OSRUUL'}
       name: label_8
@@ -248,16 +249,17 @@ components:
         event_bindings: {}
         layout_properties: {pinned: false}
         name: repeating_panel_1
-        properties: {item_template: Simulator.RowTemplate1, visible: false}
+        properties: {item_template: Simulator.RowTemplate1, visible: true}
         type: RepeatingPanel
+      data_bindings: []
       layout_properties: {full_width_row: true, grid_position: 'YHOUAI,UKWEVA'}
       name: result_grid
       properties:
         columns:
-        - {data_key: column_1, id: JKSDUP, title: Pump}
-        - {data_key: column_2, expand: false, id: VJQQOR, title: Tank Volume (gal), width: 129.5}
-        - {data_key: column_3, id: OJLQEN, title: Flow Rate (gpm)}
-        - {data_key: column_4, id: ZUGFTM, title: Fill Time (min)}
+        - {data_key: pump, id: JKSDUP, title: Pump}
+        - {data_key: tank, expand: false, id: VJQQOR, title: Tank Volume (gal), width: 129.5}
+        - {data_key: flow, id: OJLQEN, title: Flow Rate (gpm)}
+        - {data_key: fill, id: ZUGFTM, title: Fill Time (min)}
         visible: false
       type: DataGrid
     layout_properties: {full_width_row: false, grid_position: 'MERXUS,MZYTGY'}
