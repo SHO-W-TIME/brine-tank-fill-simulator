@@ -93,6 +93,17 @@ class Simulator(SimulatorTemplate):
                                             self.tank.selected_value,
                                             pump_list,
                                             manual_tank)
+    else:
+      Q_solution, t_fill = anvil.server.call('anvilSolver_dual_CSV', 
+                                            float(self.rho.text), 
+                                            float(self.L.text), 
+                                            (float(self.D.text)/12),
+                                            float(self.h_elevation.text),
+                                            float(self.f.text),
+                                            float(self.K_minor.text),
+                                            float(self.LossVar.text),
+                                            tank_list,
+                                            pump_list)
       
     print(Q_solution)
     print(t_fill)
@@ -114,14 +125,32 @@ class Simulator(SimulatorTemplate):
       self.repeating_panel_1.visible = True
       self.flow_rate_result.visible = False
       self.fill_time_result.visible = False
-      for pump_name in list([self.pump.selected_value]):
-        for j in range(len(tank_list)):
-          result_dict['pump'] = pump_name
-          result_dict['tank'] = tank_list[j]
-          result_dict['flow'] = f"{Q_solution:.2f}"
-          result_dict['fill'] = f"{t_fill[j]:.2f}"
-          result_items.append(result_dict.copy())
-          
+      if (self.pump.selected_value != "CSV File") and (self.tank.selected_value == "CSV File"):
+        for pump_name in list([self.pump.selected_value]):
+          for j in range(len(tank_list)):
+            result_dict['pump'] = pump_name
+            result_dict['tank'] = tank_list[j]
+            result_dict['flow'] = f"{Q_solution:.2f}"
+            result_dict['fill'] = f"{t_fill[j]:.2f}"
+            result_items.append(result_dict.copy())
+      elif (self.pump.selected_value == "CSV File") and (self.tank.selected_value != "CSV File"):
+        for tank_name in list([self.tank.selected_value]):
+          for j in range(len(Q_solution)):
+            result_dict['pump'] = f"Pump #{j+1}"
+            result_dict['tank'] = tank_name
+            result_dict['flow'] = f"{Q_solution[j]:.2f}"
+            result_dict['fill'] = f"{t_fill[j]:.2f}"
+            result_items.append(result_dict.copy())
+      elif (self.pump.selected_value == "CSV File") and (self.tank.selected_value == "CSV File"):
+        for i in range(len(pump_list) % 3):
+          for j in range(len(tank_list)):
+            result_dict['pump'] = f"Pump #{i+1}"
+            result_dict['tank'] = tank_list[j]
+            result_dict['flow'] = f"{Q_solution[3*i+j]:.2f}"
+            result_dict['fill'] = f"{t_fill[3*i+j]:.2f}"
+            result_items.append(result_dict.copy())
+            print(result_items)
+
       self.repeating_panel_1.items = result_items
           
 
