@@ -154,7 +154,7 @@ components:
       layout_properties: {grid_position: 'YXCGRP,EEWVCC'}
       name: pump
       properties:
-        items: [Sample Pump 1, Sample Pump 2, Manual, CSV File]
+        items: ['9306 ', Sample Pump 2, Manual, CSV File]
       type: DropDown
     - layout_properties: {grid_position: 'NMUQYQ,WXYEUY'}
       name: disclaimer_2
