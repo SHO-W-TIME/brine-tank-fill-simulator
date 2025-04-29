@@ -81,7 +81,8 @@ class Simulator(SimulatorTemplate):
                                             self.pump.selected_value,
                                             tank_list,
                                             pump_list,
-                                            manual_pump)
+                                            manual_pump,
+                                            manual_tank)
 
     print(Q_solution)
     print(t_fill)
