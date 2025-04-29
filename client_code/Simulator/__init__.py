@@ -114,13 +114,22 @@ class Simulator(SimulatorTemplate):
       self.repeating_panel_1.visible = True
       self.flow_rate_result.visible = False
       self.fill_time_result.visible = False
-      for pump_name in list([self.pump.selected_value]):
-        for j in range(len(tank_list)):
-          result_dict['pump'] = pump_name
-          result_dict['tank'] = tank_list[j]
-          result_dict['flow'] = f"{Q_solution:.2f}"
-          result_dict['fill'] = f"{t_fill[j]:.2f}"
-          result_items.append(result_dict.copy())
+      if (self.pump.selected_value != "CSV File") and (self.tank.selected_value == "CSV File"):
+        for pump_name in list([self.pump.selected_value]):
+          for j in range(len(tank_list)):
+            result_dict['pump'] = pump_name
+            result_dict['tank'] = tank_list[j]
+            result_dict['flow'] = f"{Q_solution:.2f}"
+            result_dict['fill'] = f"{t_fill[j]:.2f}"
+            result_items.append(result_dict.copy())
+      else if (self.pump.selected_value == "CSV File") and (self.tank.selected_value != "CSV File"):
+        for tank_name in list([self.pump.selected_value]):
+          for j in range(len(tank_list)):
+            result_dict['pump'] = pump_name
+            result_dict['tank'] = tank_list[j]
+            result_dict['flow'] = f"{Q_solution:.2f}"
+            result_dict['fill'] = f"{t_fill[j]:.2f}"
+            result_items.append(result_dict.copy())
           
       self.repeating_panel_1.items = result_items
           
