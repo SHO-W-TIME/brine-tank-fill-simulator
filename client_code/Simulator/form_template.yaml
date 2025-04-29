@@ -294,7 +294,7 @@ components:
       type: Label
     - event_bindings: {}
       layout_properties: {grid_position: 'HBQTIL,NIPPKJ EMNQFF,KBKLLO'}
-      name: name_box
+      name: name
       properties: {hide_text: false, text: '', type: text, visible: true}
       type: TextBox
     - layout_properties: {grid_position: 'HBQTIL,RNCTTM'}
@@ -313,7 +313,8 @@ components:
       name: feedback
       properties: {}
       type: TextArea
-    - layout_properties: {grid_position: 'PAHTNA,GWCSSJ'}
+    - event_bindings: {click: send_click}
+      layout_properties: {grid_position: 'PAHTNA,GWCSSJ'}
       name: send
       properties:
         role: outlined-button

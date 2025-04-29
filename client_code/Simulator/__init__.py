@@ -254,13 +254,17 @@ class Simulator(SimulatorTemplate):
 
 # Contact Page
   #function to send email with entered fields
-  def send_feedback(name,email,topic,feedback):
-    anvil.email.send(to="janetphan.work@gmail.com",
-                     subject=f"Feedback from {name},",
-                     text=f"""
-                     {name} has sent feedback from the brine tank simulator regarding {topic}. Their message is as follows:
-                     {feedback}
-                     """)
+  def send_click(self, **event_args):
+    """This method is called when the send button is clicked"""
+    name = self.name.text
+    email = self.email.text
+    feedback = self.feedback.text
+    anvil.server.call('send_feedback', name, email, feedback)
+    Notification("Thank you for your message!").show()
+    self.name.text = ""
+    self.email.text = ""
+    self.feedback.text = ""
+    pass
 
   def file_loader_pumps_change(self, file, **event_args):
     """This method is called when a new file is loaded into this FileLoader"""
@@ -271,3 +275,5 @@ class Simulator(SimulatorTemplate):
     """This method is called when a new file is loaded into this FileLoader"""
     print(f"The file's content type is: {file.content_type}")
     print(f"The file's contents are: '{file.get_bytes()}'")
+
+
