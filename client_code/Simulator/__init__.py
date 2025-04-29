@@ -18,7 +18,7 @@ class Simulator(SimulatorTemplate):
   
   def calculate_click(self, **event_args):
     """This method is called when the button is clicked"""
-    
+    # Check if variables are negative, if they are then alert
     # Call different variations of the solver code depending on whether CSVs are being sent or not
     if self.pump.selected_value == "CSV File": #if CSV feature here is not empty, obtain a,b,c
       pump_list = self.file_loader_pumps.file.get_bytes().decode()
