@@ -8,57 +8,174 @@ components:
     - components:
       - layout_properties: {}
         name: image_1
-        properties: {source: _/theme/Anvil image.png}
+        properties: {display_mode: original_size, source: _/theme/Input Tutorial.png, spacing_above: large, spacing_below: large}
         type: Image
       - layout_properties: {}
         name: label_18
         properties:
           align: center
-          text: |
-            Next, for the pump system and the tank used, there are three dropdown options to fill in the fields: a sample set of values, manual input, and CSV (comma separated value) file upload.
+          text: |2+
+
+            Next, for the pump system and the tank used, there are three types of dropdown options to fill in the fields: a sample set of values, manual input (labeled "Other"), and CSV (comma separated value) file upload.
+
         type: Label
       - layout_properties: {}
         name: image_2
-        properties: {source: _/theme/Screenshot 2025-04-24 230826.png}
+        properties: {display_mode: fill_width, source: _/theme/Other Input Tutorial.png, spacing_above: large, spacing_below: large}
         type: Image
       - layout_properties: {}
         name: label_19
-        properties: {align: center, text: 'If manual input is chosen, then you will be given fields to enter your values into.'}
+        properties:
+          align: center
+          text: |2+
+
+            If the "Other" input option is chosen for the pump and tank dropdown menus, then you will be given additional prompts and fields to enter your values.
+
         type: Label
       - layout_properties: {}
         name: image_3
-        properties: {source: _/theme/Screenshot 2025-04-24 230849.png}
+        properties: {display_mode: fill_width, horizontal_align: center, source: _/theme/Pump Other.png, spacing_above: large, spacing_below: large}
+        type: Image
+      - layout_properties: {}
+        name: image_4
+        properties: {source: _/theme/Tank Other.png}
         type: Image
       - layout_properties: {}
         name: label_20
-        properties: {align: center, text: 'If CSV file upload is chosen, there will be a button for you to click and upload your file into.'}
+        properties:
+          align: center
+          text: |2+
+
+            Similarly, if "CSV File" is chosen, then you will be prompted with a file upload button with which to input your set of custom entries in CSV format.
+
         type: Label
       - layout_properties: {}
-        name: image_4
-        properties: {source: _/theme/Screenshot 2025-04-24 230901.png}
+        name: image_5
+        properties: {display_mode: fill_width, source: _/theme/CSV Input Tutorial.png}
         type: Image
       - layout_properties: {}
         name: label_21
         properties:
           align: center
-          text: |
-            Finally, hit the calculate button. The calculated fill time will then be displayed at the bottom of the page.
+          text: |2+
+
+            When providing the CSVs to each of these file upload buttons, they must abide by specific arrangements.
+
+            For the pump CSV, each row -- representing a single pump -- should contain the corresponding pump coefficients a, b, and c, in that order. Note that the following sample CSV below refers to the coefficients of the sample set of pumps.
+
         type: Label
-      - name: image_5
-        properties: {}
+      - layout_properties: {}
+        name: image_6
+        properties: {display_mode: original_size, source: _/theme/Pump CSV Format.png}
         type: Image
       - layout_properties: {}
         name: label_22
-        properties: {align: center, text: 'If you have any questions, feedback, or encountered a bug and wish to report it, please contact us through the contact page. '}
+        properties:
+          align: center
+          text: |2+
+
+            Meanwhile in the tank CSV, each row -- representing a single tank -- must contain its volume in gallons. Note that the sample CSV shown below refers to the volumes of the sample set of tanks.
+
         type: Label
-      - name: image_6
-        properties: {}
+      - layout_properties: {}
+        name: image_7
+        properties: {display_mode: original_size, source: _/theme/Tank CSV Format.png}
         type: Image
+      - layout_properties: {}
+        name: label_23
+        properties:
+          align: center
+          text: |2+
+
+            Once both pump and tank inputs have been defined, click on the CALCULATE button.
+
+        type: Label
+      - layout_properties: {}
+        name: image_8
+        properties: {display_mode: original_size, source: _/theme/CALCULATE.png}
+        type: Image
+      - layout_properties: {}
+        name: label_24
+        properties:
+          align: center
+          text: |2+
+
+            From there, the outputs generated will be organized differently depending on the types of inputs that was provided for the pump and tank.
+
+            For a single pump and single tank combination, there will be two lines that display the calculated flow rate and fill times.
+
+        type: Label
+      - layout_properties: {}
+        name: image_9
+        properties: {display_mode: shrink_to_fit, source: _/theme/Single Output.png}
+        type: Image
+      - layout_properties: {}
+        name: label_25
+        properties:
+          align: center
+          text: |2+
+
+            For multiple pump-tank combinations (i.e., if there is a CSV file uploaded for the pumps and/or tanks), a table will be displayed.
+
+        type: Label
+      - layout_properties: {}
+        name: image_10
+        properties: {display_mode: original_size, source: _/theme/Multiple Output.png}
+        type: Image
+      - layout_properties: {}
+        name: label_26
+        properties:
+          align: center
+          text: |2+
+
+            Finally, if you have questions, feedback, or encountered a bug and wish to report it, please contact us through the Contact page.
+
+        type: Label
+      - layout_properties: {}
+        name: image_11
+        properties: {display_mode: original_size, source: _/theme/Contact Us.png}
+        type: Image
+      - layout_properties: {}
+        name: label_27
+        properties:
+          align: center
+          bold: true
+          font_size: 24
+          text: |2-
+
+            IMPORTANT NOTE!
+        type: Label
+      - layout_properties: {}
+        name: label_28
+        properties:
+          align: center
+          text: |+
+            For this simulator to fully function, it needs to be uplinked and run alongside its corresponding "Anvil solver" code developed in Google Colab. Please run all the cells in this Colab notebook, including the last wait_forever() line, prior to using this simulator. In addition, when prompted to restart the session upon running the first cell importing all the necessary libraries, press cancel.
+
+        type: Label
+      - layout_properties: {}
+        name: image_12
+        properties: {display_mode: original_size, source: _/theme/Solver Notebook.png}
+        type: Image
+      - layout_properties: {}
+        name: label_29
+        properties: {align: center, text: 'Please find that Google Colab notebook here:'}
+        type: Label
+      - event_bindings: {}
+        layout_properties: {}
+        name: link_1
+        properties: {align: center, text: 'https://colab.research.google.com/drive/19GFP95isbVzFFUnw2LC5BKSNCn2pBF5j?usp=sharing', url: 'https://colab.research.google.com/drive/19GFP95isbVzFFUnw2LC5BKSNCn2pBF5j?usp=sharing'}
+        type: Link
       layout_properties: {grid_position: 'QNZQJD,IPSHAC'}
       name: how_to_use_explanation
       properties:
         align: center
-        content: "Welcome to the Brine Tank Fill-time Simulator. \n\nTo get started, click on the simulator tab. For insight as to what was used to create the simulator, click on the references tab. To contact the developers, click on the contact page. The tabs can be seen on the left side of the page.\n\nFirst, enter your system parameters in their respective fields. If a field is left empty, then the listed default value will be used."
+        content: |-
+          Welcome to the Brine Tank Fill-time Simulator!
+
+          To get started, click on the simulator tab. For insight as to what was used to create the simulator, click on the references tab. To contact the developers, click on the contact page. The tabs can be seen on the left side of the page.
+
+          First, enter your system parameters in their respective fields. If a field is left empty, then the listed default value will be used.
         font_size: 18
       type: RichText
     layout_properties: {grid_position: 'CDWMUO,HYOIFU'}
@@ -99,7 +216,7 @@ components:
     - event_bindings: {}
       layout_properties: {grid_position: 'TVWUIA,EGKKDR'}
       name: D
-      properties: {enabled: true, placeholder: '1', text: '1', type: text}
+      properties: {enabled: true, placeholder: '2', text: '2', type: text}
       type: TextBox
     - layout_properties: {grid_position: 'RROBTT,ZJASZL'}
       name: label_4
@@ -143,18 +260,13 @@ components:
       type: TextBox
     - layout_properties: {grid_position: 'YXCGRP,OSRUUL'}
       name: label_8
-      properties:
-        font_size: 18
-        text: |-
-          Selected Pump
-          Sample Pump 1 has values:
-          Sample Pump 2 has values:
+      properties: {font_size: 18, text: Selected Pump}
       type: Label
     - event_bindings: {change: pump_change}
       layout_properties: {grid_position: 'YXCGRP,EEWVCC'}
       name: pump
       properties:
-        items: [Sample Pump 1, Sample Pump 2, Manual, CSV File]
+        items: ['Hypro 9306C-HM1C, 11 GPM', 'Hypro 9306C-HM1C, 12 GPM', 'Hypro 9306C-HM1C, 13 GPM', 'Hypro 9302C-HM1C, 11 GPM', 'Hypro 9302C-HM1C, 12 GPM', 'Hypro 9302C-HM1C, 13 GPM', Other, CSV File]
       type: DropDown
     - layout_properties: {grid_position: 'NMUQYQ,WXYEUY'}
       name: disclaimer_2
@@ -188,20 +300,20 @@ components:
       name: custom_pumps
       properties: {font_size: 18, text: Please provide a CSV file containing the pump parameter(s), visible: false}
       type: Label
-    - event_bindings: {change: file_loader_pumps_change}
+    - event_bindings: {}
       layout_properties: {grid_position: 'JANBIQ,LYPKDZ'}
       name: file_loader_pumps
       properties: {file_types: '".csv"', font_size: 24, visible: false}
       type: FileLoader
     - layout_properties: {grid_position: 'CDKKDW,HITXSK'}
       name: label_9
-      properties: {font_size: 18, text: Selected Tank}
+      properties: {font_size: 18, text: Selected Tank (gal)}
       type: Label
     - event_bindings: {change: tank_change}
       layout_properties: {grid_position: 'CDKKDW,PMURJB'}
       name: tank
       properties:
-        items: [Sample Tank 1, Sample Tank 2, Sample Tank 3, Manual, CSV File]
+        items: ['1000', '1584', '2000', Other, CSV File]
       type: DropDown
     - layout_properties: {grid_position: 'UHURAY,SURRUH'}
       name: custom_volume
@@ -216,7 +328,7 @@ components:
       properties: {font_size: 18, text: Please provide a CSV file containing tank volume(s), visible: false}
       type: Label
     - data_bindings: []
-      event_bindings: {change: file_loader_tanks_change}
+      event_bindings: {}
       layout_properties: {grid_position: 'NQHVHZ,YPBFOA'}
       name: file_loader_tanks
       properties: {file_types: '".csv"', font_size: 24, visible: false}
@@ -234,15 +346,17 @@ components:
         role: filled-button
         spacing:
           margin: [null, null, 0, 0]
+        spacing_above: large
+        spacing_below: large
         text: CALCULATE
       type: Button
     - layout_properties: {grid_position: 'SUNNDX,MOODXZ'}
       name: flow_rate_result
-      properties: {align: center, bold: true, font_size: 24, visible: false}
+      properties: {align: center, bold: true, font_size: 24, spacing_above: large, spacing_below: large, visible: false}
       type: Label
     - layout_properties: {grid_position: 'VOKCCI,XDGSRD'}
       name: fill_time_result
-      properties: {align: center, bold: true, font_size: 24, visible: false}
+      properties: {align: center, bold: true, font_size: 24, spacing_above: large, spacing_below: large, visible: false}
       type: Label
     - components:
       - data_bindings: []
@@ -260,6 +374,8 @@ components:
         - {data_key: tank, expand: false, id: VJQQOR, title: Tank Volume (gal), width: 236.5}
         - {data_key: flow, id: OJLQEN, title: Flow Rate (gpm)}
         - {data_key: fill, id: ZUGFTM, title: Fill Time (min)}
+        spacing_above: large
+        spacing_below: large
         visible: false
       type: DataGrid
     layout_properties: {full_width_row: false, grid_position: 'MERXUS,MZYTGY'}
@@ -286,11 +402,11 @@ components:
       type: Label
     - layout_properties: {grid_position: 'VPGKON,QVRFUO'}
       name: label_16
-      properties: {align: center, bold: true, text: 'For any questions, comments, or concerns, please use this form to contact us, and we will respond as soon as possible.'}
+      properties: {align: center, bold: true, font_size: 18, text: 'For any questions, comments, or concerns, please use this form to contact us, and we will respond as soon as possible.'}
       type: Label
     - layout_properties: {grid_position: 'HBQTIL,NIPPKJ VRMDMA,ZHPYOR'}
       name: label_13
-      properties: {bold: true, text: Name}
+      properties: {bold: true, font_size: 18, text: Name}
       type: Label
     - event_bindings: {}
       layout_properties: {grid_position: 'HBQTIL,NIPPKJ EMNQFF,KBKLLO'}
@@ -299,7 +415,7 @@ components:
       type: TextBox
     - layout_properties: {grid_position: 'HBQTIL,RNCTTM'}
       name: label_17
-      properties: {bold: true, text: Email}
+      properties: {bold: true, font_size: 18, text: Email}
       type: Label
     - layout_properties: {grid_position: 'HBQTIL,RNCTTM TUQQDN,NUMIUL'}
       name: email
@@ -307,7 +423,7 @@ components:
       type: TextBox
     - layout_properties: {grid_position: 'WISRFD,SQARJC'}
       name: label_15
-      properties: {align: center, bold: true, text: Please enter your concerns or feedback here!}
+      properties: {align: center, bold: true, font: '', font_size: 18, text: Please enter your concerns or feedback here!}
       type: Label
     - layout_properties: {grid_position: 'IAGWNF,CKOCYD'}
       name: feedback
@@ -317,6 +433,7 @@ components:
       layout_properties: {grid_position: 'PAHTNA,GWCSSJ'}
       name: send
       properties:
+        font_size: 18
         role: outlined-button
         text: |
           Submit

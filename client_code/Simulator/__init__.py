@@ -31,7 +31,6 @@ class Simulator(SimulatorTemplate):
       split_pump_list = [item for sublist in split_pump_list for item in sublist]
       split_pump_list = [float(x) for x in split_pump_list]
       pump_list = split_pump_list
-      print(pump_list)
     else:
       pump_list = [0]
 
@@ -40,21 +39,20 @@ class Simulator(SimulatorTemplate):
       tank_list = tank_list.split('\r\n')
       tank_list.pop(-1)
       tank_list = [int(x) for x in tank_list]
-      print(tank_list)
     else:
       tank_list = [0]
 
      # Assign values if user-defined pump and/or tank values are provided
-    if self.pump.selected_value == "Manual": #if manual pump, obtain a,b,c
+    if self.pump.selected_value == "Other": #if other pump, obtain a,b,c
       pump_list = [float(self.pump_a.text), float(self.pump_b.text), float(self.pump_c.text)]
-      manual_pump = tuple(pump_list)
+      other_pump = tuple(pump_list)
     else:
-      manual_pump = (0,0,0)
+      other_pump = (0,0,0)
 
-    if self.tank.selected_value == "Manual": #if manual tank, obtain volume
-      manual_tank = float(self.tank_v.text)
+    if self.tank.selected_value == "Other": #if other tank, obtain volume
+      other_tank = float(self.tank_v.text)
     else:
-      manual_tank = 0
+      other_tank = 0
 
     if (self.pump.selected_value != "CSV File") and (self.tank.selected_value != "CSV File"): #non-CSV case
       Q_solution, t_fill = anvil.server.call('anvilSolver', 
@@ -67,8 +65,8 @@ class Simulator(SimulatorTemplate):
                                             float(self.LossVar.text),
                                             self.pump.selected_value,
                                             self.tank.selected_value,
-                                            manual_pump,
-                                            manual_tank)
+                                            other_pump,
+                                            other_tank)
     elif (self.tank.selected_value == "CSV File") and (self.pump.selected_value != "CSV File"): #tank CSV case
       Q_solution, t_fill = anvil.server.call('anvilSolver_tank_CSV', 
                                             float(self.rho.text), 
@@ -80,7 +78,7 @@ class Simulator(SimulatorTemplate):
                                             float(self.LossVar.text),
                                             self.pump.selected_value,
                                             tank_list,
-                                            manual_pump)
+                                            other_pump)
     elif (self.tank.selected_value != "CSV File") and (self.pump.selected_value == "CSV File"): #pump CSV case
       Q_solution, t_fill = anvil.server.call('anvilSolver_pump_CSV', 
                                             float(self.rho.text), 
@@ -92,7 +90,7 @@ class Simulator(SimulatorTemplate):
                                             float(self.LossVar.text),
                                             self.tank.selected_value,
                                             pump_list,
-                                            manual_tank)
+                                            other_tank)
     else:
       Q_solution, t_fill = anvil.server.call('anvilSolver_dual_CSV', 
                                             float(self.rho.text), 
@@ -137,7 +135,10 @@ class Simulator(SimulatorTemplate):
         for tank_name in list([self.tank.selected_value]):
           for j in range(len(pump_list) // 3):
             result_dict['pump'] = f"Pump #{j+1}"
-            result_dict['tank'] = tank_name
+            if tank_name == "Other":
+              result_dict['tank'] = self.tank_v.text
+            else:
+              result_dict['tank'] = tank_name
             result_dict['flow'] = f"{Q_solution[j]:.2f}"
             result_dict['fill'] = f"{t_fill[j]:.2f}"
             result_items.append(result_dict.copy())
@@ -195,7 +196,7 @@ class Simulator(SimulatorTemplate):
 
   def pump_change(self, **event_args):
     """This method is called when an item is selected"""
-    if self.pump.selected_value == "Manual":
+    if self.pump.selected_value == "Other":
       self.disclaimer_2.visible = True
       self.custom_a.visible = True
       self.custom_b.visible = True
@@ -222,7 +223,7 @@ class Simulator(SimulatorTemplate):
 
   def tank_change(self, **event_args):
     """This method is called when an item is selected"""
-    if self.tank.selected_value == "Manual":
+    if self.tank.selected_value == "Other":
       self.custom_volume.visible = True
       self.tank_v.visible = True
     else:
@@ -265,15 +266,5 @@ class Simulator(SimulatorTemplate):
     self.email.text = ""
     self.feedback.text = ""
     pass
-
-  def file_loader_pumps_change(self, file, **event_args):
-    """This method is called when a new file is loaded into this FileLoader"""
-    print(f"The file's content type is: {file.content_type}")
-    print(f"The file's contents are: '{file.get_bytes()}'")
-
-  def file_loader_tanks_change(self, file, **event_args):
-    """This method is called when a new file is loaded into this FileLoader"""
-    print(f"The file's content type is: {file.content_type}")
-    print(f"The file's contents are: '{file.get_bytes()}'")
 
 
