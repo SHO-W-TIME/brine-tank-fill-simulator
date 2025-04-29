@@ -80,8 +80,12 @@ class Simulator(SimulatorTemplate):
                                             float(self.LossVar.text),
                                             self.pump.selected_value,
                                             tank_list,
+                                            pump_list,
                                             manual_pump)
 
+    print(Q_solution)
+    print(t_fill)
+    
     result_dict = {}
     result_items = []
     
