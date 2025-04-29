@@ -389,7 +389,12 @@ components:
       type: Label
     - layout_properties: {grid_position: 'IFGVFZ,MGIJFB'}
       name: references_list
-      properties: {text: (placeholder text 2)}
+      properties:
+        text: |-
+          [1] ÇengelY. A. and J. M. Cimbala, Fluid mechanics : Fundamentals and applications, 3rd ed. New York: Mcgraw Hill, 2014.
+
+          [2] “Hypro Series 9306 Original Instruction Manual 9306C & 9306S Cast Iron & Stainless Steel Series Centrifugal Pumps KEEP FOR FUTURE REFERENCE.” Available: https://www.pentair.com/content/dam/extranet/web/nam/hypro/manuals/l-1546-series-9306-cast-iron-stainless-steel-centrifugal-pumps-iom.pdf
+          ‌
       type: Label
     layout_properties: {grid_position: 'GWDMZO,PYWVVI'}
     name: references_card
