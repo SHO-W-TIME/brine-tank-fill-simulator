@@ -69,8 +69,8 @@ class Simulator(SimulatorTemplate):
                                             self.tank.selected_value,
                                             manual_pump,
                                             manual_tank)
-    else:
-      Q_solution, t_fill = anvil.server.call('anvilSolver_CSV', 
+    elif (self.tank.selected_value == "CSV File") and (self.pump.selected_value != "CSV File"): #tank CSV case
+      Q_solution, t_fill = anvil.server.call('anvilSolver_tank_CSV', 
                                             float(self.rho.text), 
                                             float(self.L.text), 
                                             (float(self.D.text)/12),
@@ -80,10 +80,20 @@ class Simulator(SimulatorTemplate):
                                             float(self.LossVar.text),
                                             self.pump.selected_value,
                                             tank_list,
+                                            manual_pump)
+    elif (self.tank.selected_value != "CSV File") and (self.pump.selected_value == "CSV File"): #pump CSV case
+      Q_solution, t_fill = anvil.server.call('anvilSolver_pump_CSV', 
+                                            float(self.rho.text), 
+                                            float(self.L.text), 
+                                            (float(self.D.text)/12),
+                                            float(self.h_elevation.text),
+                                            float(self.f.text),
+                                            float(self.K_minor.text),
+                                            float(self.LossVar.text),
+                                            self.tank.selected_value,
                                             pump_list,
-                                            manual_pump,
                                             manual_tank)
-
+      
     print(Q_solution)
     print(t_fill)
     
@@ -111,7 +121,6 @@ class Simulator(SimulatorTemplate):
           result_dict['flow'] = f"{Q_solution:.2f}"
           result_dict['fill'] = f"{t_fill[j]:.2f}"
           result_items.append(result_dict.copy())
-          print(result_items)
           
       self.repeating_panel_1.items = result_items
           
