@@ -327,8 +327,7 @@ components:
       name: custom_tanks
       properties: {font_size: 18, text: Please provide a CSV file containing tank volume(s), visible: false}
       type: Label
-    - data_bindings: []
-      event_bindings: {}
+    - event_bindings: {}
       layout_properties: {grid_position: 'NQHVHZ,YPBFOA'}
       name: file_loader_tanks
       properties: {file_types: '".csv"', font_size: 24, visible: false}
@@ -359,13 +358,11 @@ components:
       properties: {align: center, bold: true, font_size: 24, spacing_above: large, spacing_below: large, visible: false}
       type: Label
     - components:
-      - data_bindings: []
-        event_bindings: {}
+      - event_bindings: {}
         layout_properties: {pinned: false}
         name: repeating_panel_1
         properties: {item_template: Simulator.RowTemplate1, visible: true}
         type: RepeatingPanel
-      data_bindings: []
       layout_properties: {full_width_row: true, grid_position: 'YHOUAI,UKWEVA'}
       name: result_grid
       properties:
