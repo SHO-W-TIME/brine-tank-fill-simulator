@@ -256,7 +256,7 @@ components:
       name: result_grid
       properties:
         columns:
-        - {data_key: pump, id: JKSDUP, title: Pump}
+        - {data_key: pump, expand: false, id: JKSDUP, title: Pump}
         - {data_key: tank, expand: false, id: VJQQOR, title: Tank Volume (gal), width: 129.5}
         - {data_key: flow, id: OJLQEN, title: Flow Rate (gpm)}
         - {data_key: fill, id: ZUGFTM, title: Fill Time (min)}

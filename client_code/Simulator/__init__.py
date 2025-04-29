@@ -18,41 +18,69 @@ class Simulator(SimulatorTemplate):
   
   def calculate_click(self, **event_args):
     """This method is called when the button is clicked"""
-    # Call different variations of the solver code depending on whether CSVs are being sent or not?
+    
+    # Call different variations of the solver code depending on whether CSVs are being sent or not
     if self.pump.selected_value == "CSV File": #if CSV feature here is not empty, obtain a,b,c
       pump_list = self.file_loader_pumps.file.get_bytes().decode()
+      pump_list = pump_list.split('\r\n')
+      pump_list.pop(-1)
+      split_pump_list = []
+      for item in pump_list:
+        item = item.split(',')
+        split_pump_list.append(item)
+      split_pump_list = [item for sublist in split_pump_list for item in sublist]
+      split_pump_list = [float(x) for x in split_pump_list]
+      pump_list = split_pump_list
       print(pump_list)
-    if self.tank.selected_value == "CSV File": #if CSV feature here is not empty, collect vector of custom tank volus
+    else:
+      pump_list = [0]
+
+    if self.tank.selected_value == "CSV File": #if CSV feature here is not empty, collect vector of custom tank volumes
       tank_list = self.file_loader_tanks.file.get_bytes().decode()
       tank_list = tank_list.split('\r\n')
       tank_list.pop(-1)
       tank_list = [int(x) for x in tank_list]
       print(tank_list)
+    else:
+      tank_list = [0]
 
-    if (self.pump.selected_value != "CSV File") and (self.tank.selected_value != "CSV File"):
+     # Assign values if user-defined pump and/or tank values are provided
+    if self.pump.selected_value == "Manual": #if manual pump, obtain a,b,c
+      pump_list = [float(self.pump_a.text), float(self.pump_b.text), float(self.pump_c.text)]
+      manual_pump = tuple(pump_list)
+    else:
+      manual_pump = (0,0,0)
+
+    if self.tank.selected_value == "Manual": #if manual tank, obtain volume
+      manual_tank = float(self.tank_v.text)
+    else:
+      manual_tank = 0
+
+    if (self.pump.selected_value != "CSV File") and (self.tank.selected_value != "CSV File"): #non-CSV case
       Q_solution, t_fill = anvil.server.call('anvilSolver', 
-                                           float(self.rho.text), 
-                                           float(self.L.text), 
-                                           (float(self.D.text)/12),
-                                           float(self.h_elevation.text),
-                                           float(self.f.text),
-                                           float(self.K_minor.text),
-                                           float(self.LossVar.text),
-                                           self.pump.selected_value,
-                                           self.tank.selected_value)
+                                            float(self.rho.text), 
+                                            float(self.L.text), 
+                                            (float(self.D.text)/12),
+                                            float(self.h_elevation.text),
+                                            float(self.f.text),
+                                            float(self.K_minor.text),
+                                            float(self.LossVar.text),
+                                            self.pump.selected_value,
+                                            self.tank.selected_value,
+                                            manual_pump,
+                                            manual_tank)
     else:
       Q_solution, t_fill = anvil.server.call('anvilSolver_CSV', 
-                                           float(self.rho.text), 
-                                           float(self.L.text), 
-                                           (float(self.D.text)/12),
-                                           float(self.h_elevation.text),
-                                           float(self.f.text),
-                                           float(self.K_minor.text),
-                                           float(self.LossVar.text),
-                                           self.pump.selected_value,
-                                           tank_list)
-
-    print(Q_solution, t_fill)
+                                            float(self.rho.text), 
+                                            float(self.L.text), 
+                                            (float(self.D.text)/12),
+                                            float(self.h_elevation.text),
+                                            float(self.f.text),
+                                            float(self.K_minor.text),
+                                            float(self.LossVar.text),
+                                            self.pump.selected_value,
+                                            tank_list,
+                                            manual_pump)
 
     result_dict = {}
     result_items = []
@@ -70,15 +98,16 @@ class Simulator(SimulatorTemplate):
       self.result_grid.visible = True
       self.repeating_panel_1.visible = True
       self.flow_rate_result.visible = False
+      self.fill_time_result.visible = False
       for pump_name in list([self.pump.selected_value]):
         for j in range(len(tank_list)):
           result_dict['pump'] = pump_name
           result_dict['tank'] = tank_list[j]
           result_dict['flow'] = f"{Q_solution:.2f}"
           result_dict['fill'] = f"{t_fill[j]:.2f}"
-          result_items.append(result_dict)
+          result_items.append(result_dict.copy())
+          print(result_items)
           
-      print(result_items)
       self.repeating_panel_1.items = result_items
           
 

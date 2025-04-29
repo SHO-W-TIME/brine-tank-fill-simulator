@@ -1046,3 +1046,7 @@ div.plot-container.plotly svg.main-svg {
 .anvil-spinner {
     --anvil-spinner-bg: %color:Surface Variant%;
 }
+
+.auto-grid-header {
+    font-size: 16px;
+}

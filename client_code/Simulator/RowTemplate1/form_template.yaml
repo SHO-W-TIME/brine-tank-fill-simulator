@@ -1,5 +1,6 @@
 components: []
 container:
   data_bindings: []
+  properties: {font_size: 18}
   type: DataRowPanel
 is_package: true
