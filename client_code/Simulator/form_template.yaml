@@ -189,7 +189,7 @@ components:
       type: Label
     - layout_properties: {grid_position: 'YJQHHS,SCRDWR'}
       name: disclaimer_1_copy
-      properties: {align: center, bold: true, font_size: 18, text: 'Please enter the following values. If no value is entered, then the shown default value will be used. Negative values will not be accepted.'}
+      properties: {align: center, bold: true, font_size: 18, text: 'Please enter the following values. If no value is entered, then the shown default value will be used. Negative values will not be accepted. If a negative input is given, then the default value will be used instead.'}
       type: Label
     - layout_properties: {grid_position: 'HELLQO,LWXXJG'}
       name: label_1
