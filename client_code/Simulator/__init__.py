@@ -22,6 +22,26 @@ class Simulator(SimulatorTemplate):
     if int(self.rho.text) < 0:
       alert("Rho is negative. Please re-enter")
       pass
+
+    if int(self.L.text) < 0:
+      alert("Pipe length is negative. Please re-enter")
+      pass
+
+    if int(self.D.text) < 0:
+      alert("Pipe diameter is negative. Please re-enter")
+      pass
+      
+    if int(self.h_elevation.text) < 0:
+      alert("Height difference is negative. Please re-enter")
+      pass      
+      
+    if int(self.f.text) < 0:
+      alert("Darcy friction factor is negative. Please re-enter")
+      pass
+
+    if int(self.K_minor.text) < 0:
+      alert("The total minor losses are negative. Please re-enter")
+      pass
     # Call different variations of the solver code depending on whether CSVs are being sent or not
     if self.pump.selected_value == "CSV File": #if CSV feature here is not empty, obtain a,b,c
       pump_list = self.file_loader_pumps.file.get_bytes().decode()
