@@ -38,27 +38,27 @@ class Simulator(SimulatorTemplate):
       alert("Rho is negative. Please re-enter")
       pass
 
-    if int(self.L.text) < 0:
+    if float(self.L.text) < 0:
       alert("Pipe length is negative. Please re-enter")
       pass
 
-    if int(self.D.text) < 0:
+    if float(self.D.text) < 0:
       alert("Pipe diameter is negative. Please re-enter")
       pass
       
-    if int(self.h_elevation.text) < 0:
+    if float(self.h_elevation.text) < 0:
       alert("Height difference is negative. Please re-enter")
       pass      
       
-    if int(self.f.text) < 0:
+    if float(self.f.text) < 0:
       alert("Darcy friction factor is negative. Please re-enter")
       pass
 
-    if int(self.K_minor.text) < 0:
+    if float(self.K_minor.text) < 0:
       alert("The total minor losses are negative. Please re-enter")
       pass
 
-    if int(self.height.text) < 0:
+    if (self.height.visible == True) and float(self.height.text) < 0:
       alert("The height cannot be negative. Please re-enter")
       pass
     
