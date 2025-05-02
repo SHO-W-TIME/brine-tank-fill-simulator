@@ -13,7 +13,7 @@ class Simulator(SimulatorTemplate):
     self.simulator_card.visible = False
     self.how_to_use_card.visible = True
     self.references_card.visible = False
-    self.contact_card.visible=False
+    self.contact_card.visible = False
     # Any code you write here will run before the form opens.
 
   def fill_type_change(self, **event_args):
@@ -236,7 +236,7 @@ class Simulator(SimulatorTemplate):
     self.how_to_use_card.visible=False
 
   def form_refreshing_data_bindings(self, **event_args):
-    """This method is called when refresh_data_bindings is called"""
+    """This method is called when refresh_data_bindings is called."""
     pass
 
   def K_minor_change(self, **event_args):

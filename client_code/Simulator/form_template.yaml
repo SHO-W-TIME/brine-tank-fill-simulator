@@ -8,7 +8,7 @@ components:
     - components:
       - layout_properties: {}
         name: image_1
-        properties: {display_mode: original_size, source: _/theme/Input Tutorial.png, spacing_above: large, spacing_below: large}
+        properties: {display_mode: original_size, source: _/theme/Screenshot 2025-05-01 215736.png, spacing_above: large, spacing_below: large}
         type: Image
       - layout_properties: {}
         name: label_18
