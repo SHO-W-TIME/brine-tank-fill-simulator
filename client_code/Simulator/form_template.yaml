@@ -175,7 +175,7 @@ components:
 
           To get started, click on the simulator tab. For insight as to what was used to create the simulator, click on the references tab. To contact the developers, click on the contact page. The tabs can be seen on the left side of the page.
 
-          First, enter your system parameters in their respective fields. If a field is left empty, then the listed default value will be used.
+          First, enter your system parameters in their respective fields. If a field is left empty, then the listed default value will be used. In addition, select whether or not the tank is being filled from the top or bottom using the respective dropdown menu.
         font_size: 18
       type: RichText
     layout_properties: {grid_position: 'CDWMUO,HYOIFU'}
@@ -218,15 +218,6 @@ components:
       name: D
       properties: {enabled: true, placeholder: '2', text: '2', type: text}
       type: TextBox
-    - layout_properties: {grid_position: 'RROBTT,ZJASZL'}
-      name: label_4
-      properties: {align: left, font_size: 18, text: Height Difference to Top Fill (ft)}
-      type: Label
-    - event_bindings: {}
-      layout_properties: {grid_position: 'RROBTT,WBYGER'}
-      name: h_elevation
-      properties: {placeholder: '4', text: '4', type: text}
-      type: TextBox
     - layout_properties: {grid_position: 'UNOGMK,BFJAFL'}
       name: label_5
       properties: {font_size: 18, text: Darcy Friction Factor}
@@ -244,6 +235,39 @@ components:
       layout_properties: {grid_position: 'TBUTRC,MWFTKV'}
       name: K_minor
       properties: {hide_text: false, placeholder: '3.5', text: '3.5', type: text}
+      type: TextBox
+    - layout_properties: {grid_position: 'BPXSKN,EDOUUR'}
+      name: label_31
+      properties: {align: center, bold: true, font_size: 18, text: Please select whether the system is a top fill or bottom fill application}
+      type: Label
+    - layout_properties: {grid_position: 'FFGIYZ,MIYYAQ AIWTVK,YPQZJA'}
+      name: label_30
+      properties: {font_size: 18, text: Top or bottom fill}
+      type: Label
+    - layout_properties: {grid_position: 'FFGIYZ,MIYYAQ LXVTUG,ZULTKU'}
+      name: label_4
+      properties: {align: left, font_size: 18, text: Height Difference to Top Fill (ft)}
+      type: Label
+    - layout_properties: {grid_position: 'FFGIYZ,MIYYAQ XQUAHZ,WSKMIL'}
+      name: label_32
+      properties: {font_size: 18, text: Tank height, visible: false}
+      type: Label
+    - event_bindings: {change: fill_type_change}
+      layout_properties: {grid_position: 'FFGIYZ,ITPISY QLGMSM,FZAHTC'}
+      name: fill_type
+      properties:
+        items: [Top, Bottom]
+      type: DropDown
+    - event_bindings: {}
+      layout_properties: {grid_position: 'FFGIYZ,ITPISY UFQVXE,RDSKFA'}
+      name: h_elevation
+      properties: {placeholder: '4', text: '4', type: text}
+      type: TextBox
+    - data_bindings: []
+      event_bindings: {}
+      layout_properties: {grid_position: 'FFGIYZ,ITPISY ERQAOE,ZHWXWH'}
+      name: height
+      properties: {placeholder: '8', visible: false}
       type: TextBox
     - layout_properties: {grid_position: 'CVHCIP,XRDTJJ'}
       name: disclaimer_1

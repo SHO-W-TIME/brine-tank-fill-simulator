@@ -15,6 +15,21 @@ class Simulator(SimulatorTemplate):
     self.references_card.visible = False
     self.contact_card.visible=False
     # Any code you write here will run before the form opens.
+
+  def fill_type_change(self, **event_args):
+    """This method is called when an item is selected"""
+    if self.fill_type.selected_value == "Top":
+      self.label_4.visible = True
+      self.h_elevation.visible = True
+      self.label_32.visible = False
+      self.height.visible = False
+      
+    elif self.fill_type.selected_value == "Bottom":
+      self.label_4.visible = False
+      self.h_elevation.visible = False
+      self.label_32.visible = True
+      self.height.visible = True
+    pass
   
   def calculate_click(self, **event_args):
     """This method is called when the button is clicked"""
@@ -42,6 +57,11 @@ class Simulator(SimulatorTemplate):
     if int(self.K_minor.text) < 0:
       alert("The total minor losses are negative. Please re-enter")
       pass
+
+    if int(self.height.text) < 0:
+      alert("The height cannot be negative. Please re-enter")
+      pass
+    
     # Call different variations of the solver code depending on whether CSVs are being sent or not
     if self.pump.selected_value == "CSV File": #if CSV feature here is not empty, obtain a,b,c
       pump_list = self.file_loader_pumps.file.get_bytes().decode()
@@ -82,49 +102,57 @@ class Simulator(SimulatorTemplate):
                                             float(self.rho.text), 
                                             float(self.L.text), 
                                             (float(self.D.text)/12),
-                                            float(self.h_elevation.text),
+                                            self.h_elevation.text,
                                             float(self.f.text),
                                             float(self.K_minor.text),
                                             float(self.LossVar.text),
                                             self.pump.selected_value,
                                             self.tank.selected_value,
                                             other_pump,
-                                            other_tank)
+                                            other_tank,
+                                            self.fill_type.selected_value,
+                                            self.height.text)
     elif (self.tank.selected_value == "CSV File") and (self.pump.selected_value != "CSV File"): #tank CSV case
       Q_solution, t_fill = anvil.server.call('anvilSolver_tank_CSV', 
                                             float(self.rho.text), 
                                             float(self.L.text), 
                                             (float(self.D.text)/12),
-                                            float(self.h_elevation.text),
+                                            self.h_elevation.text,
                                             float(self.f.text),
                                             float(self.K_minor.text),
                                             float(self.LossVar.text),
                                             self.pump.selected_value,
                                             tank_list,
-                                            other_pump)
+                                            other_pump,
+                                            self.fill_type.selected_value,
+                                            self.height.text)
     elif (self.tank.selected_value != "CSV File") and (self.pump.selected_value == "CSV File"): #pump CSV case
       Q_solution, t_fill = anvil.server.call('anvilSolver_pump_CSV', 
                                             float(self.rho.text), 
                                             float(self.L.text), 
                                             (float(self.D.text)/12),
-                                            float(self.h_elevation.text),
+                                            self.h_elevation.text,
                                             float(self.f.text),
                                             float(self.K_minor.text),
                                             float(self.LossVar.text),
                                             self.tank.selected_value,
                                             pump_list,
-                                            other_tank)
+                                            other_tank,
+                                            self.fill_type.selected_value,
+                                            self.height.text)
     else:
       Q_solution, t_fill = anvil.server.call('anvilSolver_dual_CSV', 
                                             float(self.rho.text), 
                                             float(self.L.text), 
                                             (float(self.D.text)/12),
-                                            float(self.h_elevation.text),
+                                            self.h_elevation.text,
                                             float(self.f.text),
                                             float(self.K_minor.text),
                                             float(self.LossVar.text),
                                             tank_list,
-                                            pump_list)
+                                            pump_list,
+                                            self.fill_type.selected_value,
+                                            self.height.text)
       
     #print(Q_solution)
     #print(t_fill)
@@ -176,8 +204,6 @@ class Simulator(SimulatorTemplate):
 
       self.repeating_panel_1.items = result_items
           
-
-
   def how_to_use_click(self, **event_args):
     """This method is called when the link is clicked"""
     self.how_to_use_card.visible = True
@@ -289,5 +315,7 @@ class Simulator(SimulatorTemplate):
     self.email.text = ""
     self.feedback.text = ""
     pass
+
+
 
 
