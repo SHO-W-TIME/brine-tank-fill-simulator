@@ -34,7 +34,7 @@ class Simulator(SimulatorTemplate):
   def calculate_click(self, **event_args):
     """This method is called when the button is clicked"""
     # Check if variables are negative, if they are then alert and prompt a re-enter
-    if int(self.rho.text) < 0:
+    if float(self.rho.text) < 0:
       alert("Rho is negative. Please re-enter")
       pass
 
